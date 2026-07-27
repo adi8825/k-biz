@@ -255,6 +255,7 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
             viewMode={viewMode}
             hoveredGeneration={hoveredGeneration}
             onHoverGeneration={setHoveredGeneration}
+            hoveredType={hoveredType}
             onHoverType={setHoveredType}
             selectedGroupId={selectedGroupId}
             selectedGroupPage={activePage}

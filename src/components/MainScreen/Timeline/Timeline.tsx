@@ -6,7 +6,11 @@ import { getGroupById, groups, type GroupPosition } from "@/data/groups";
 import { getTimelineRows, type SortMode } from "@/lib/timeline/sortModes";
 import { getTop10Rows } from "@/lib/timeline/top10";
 import { isGroupActive } from "@/lib/timeline/isGroupActive";
-import { typePanelForValue, type TypeId } from "@/components/MainScreen/EditorialPanel/typePanels";
+import {
+  TYPE_PANELS,
+  typePanelForValue,
+  type TypeId,
+} from "@/components/MainScreen/EditorialPanel/typePanels";
 import { EMPTY_FILTER_STATE, type FilterState } from "@/lib/timeline/filterState";
 import type { ViewMode } from "@/lib/timeline/viewMode";
 import type { CharmRegion } from "@/lib/timeline/charmRegions";
@@ -30,6 +34,7 @@ export default function Timeline({
   viewMode = "default",
   hoveredGeneration = null,
   onHoverGeneration,
+  hoveredType = null,
   onHoverType,
   selectedGroupId = null,
   selectedGroupPage = 0,
@@ -42,6 +47,10 @@ export default function Timeline({
   /** Transient preview only — never written into the Timeline's own state, so
    * leaving the heading restores whatever was showing before. */
   hoveredGeneration?: number | null;
+  /** The Type-mode counterpart of `hoveredGeneration`. Transient in exactly
+   * the same way — it narrows the active set and is never written into the
+   * Timeline's own state. */
+  hoveredType?: TypeId | null;
   onHoverGeneration?: (generation: number | null) => void;
   /** Type sort mode only. Same transient preview contract as the generation
    * rows: `null` on leave, never written into the Timeline's own state. */
@@ -58,6 +67,21 @@ export default function Timeline({
   onClearSelection?: () => void;
 }) {
   const isTop10 = viewMode === "top10";
+  /* A hovered row narrows the active set to its own members. Generation and
+   * Type differ only in the field they match on, so the predicate is resolved
+   * once here and every dimming site below reads it — there is no second
+   * filtering system, and the visual treatment is literally the same code. */
+  const hoveredTypeValue = hoveredType === null ? null : TYPE_PANELS[hoveredType].typeValue;
+  const inHoveredRow = (group: { generation: number | null; type: string | null }) =>
+    (hoveredGeneration === null || group.generation === hoveredGeneration) &&
+    (hoveredTypeValue === null || group.type === hoveredTypeValue);
+  /** Whether a row is the hovered one, for the curve and label treatment. */
+  const rowIsHovered = (row: { config: { key: string; label: { variant?: string } } }) => {
+    if (hoveredGeneration !== null) return generationOfRow(row) === hoveredGeneration;
+    if (hoveredType !== null) return typePanelForValue(row.config.key) === hoveredType;
+    return true;
+  };
+  const anyRowHovered = hoveredGeneration !== null || hoveredType !== null;
   /* Top 10 keeps the generation rows rather than adopting the sort's own row
    * buckets, but the sort still applies *within* those rows — previously
    * `sortMode` was simply not passed here, so the Sort controls updated their
@@ -123,7 +147,7 @@ export default function Timeline({
           <CurveLine
             key={`curve-${i}`}
             curve={row.config.curve}
-            dimmed={hoveredGeneration !== null && generationOfRow(row) !== hoveredGeneration}
+            dimmed={anyRowHovered && !rowIsHovered(row)}
           />
         ))}
       </AnimatePresence>
@@ -139,7 +163,7 @@ export default function Timeline({
             <RowLabel
               key={`label-${i}`}
               label={row.config.label}
-              dimmed={hoveredGeneration !== null && generation !== hoveredGeneration}
+              dimmed={anyRowHovered && !rowIsHovered(row)}
               onHover={
                 generation !== null && onHoverGeneration
                   ? (entering) => onHoverGeneration(entering ? generation : null)
@@ -164,8 +188,7 @@ export default function Timeline({
         const active =
           selectedGroupId !== null
             ? group.id === selectedGroupId
-            : isGroupActive(group, filterState) &&
-              (hoveredGeneration === null || group.generation === hoveredGeneration);
+            : isGroupActive(group, filterState) && inHoveredRow(group);
         return (
           <Charm
             key={group.id}

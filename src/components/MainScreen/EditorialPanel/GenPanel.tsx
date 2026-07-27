@@ -1,4 +1,4 @@
-import { GEN_PANELS, type GenId } from "./genPanels";
+import { GEN_PANELS, type GenId, type PanelImage, type PanelText } from "./genPanels";
 
 const ASSET = "/mainscreen/genpanels";
 
@@ -12,21 +12,28 @@ const KO_TEXT = "font-pretendard text-[15px] font-light leading-[16.9px] trackin
 const BLEED = 1;
 
 /**
- * One generation's information panel.
+ * The plates and fact blocks of an information panel.
  *
- * Occupies the identical 323x1136 box as the standing EditorialPanel, so
- * showing it swaps content without moving anything.
+ * Shared by every panel family: the geometry, the 1px bleed rule and both text
+ * ramps are identical across them, and only the heading differs. Exported so a
+ * new family adds a heading rather than a second renderer.
  */
-export default function GenPanel({ gen }: { gen: GenId }) {
-  const panel = GEN_PANELS[gen];
-
+export function PanelBody({
+  assetBase,
+  images,
+  texts,
+}: {
+  assetBase: string;
+  images: PanelImage[];
+  texts: PanelText[];
+}) {
   return (
-    <div className="absolute inset-0 text-white" data-gen-panel={gen}>
-      {panel.images.map((img, i) => (
+    <>
+      {images.map((img, i) => (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           key={`${img.file}-${i}`}
-          src={`${ASSET}/${img.file}`}
+          src={`${assetBase}/${img.file}`}
           alt=""
           className="absolute block max-w-none"
           style={{
@@ -38,28 +45,7 @@ export default function GenPanel({ gen }: { gen: GenId }) {
         />
       ))}
 
-      {/* Heading: the numeral sits beside a stacked English/Korean pair, the
-       * same treatment the timeline's generation labels use. */}
-      <div
-        className="absolute flex flex-col items-center justify-center px-[3px] py-[23px]"
-        style={{ left: panel.headingLeft, top: 0 }}
-      >
-        <div className="flex items-center" style={{ gap: panel.headingGap }}>
-          <p className="font-satoshi text-[72px] font-light uppercase leading-[72px] text-white whitespace-nowrap">
-            {panel.gen}
-          </p>
-          <div className="flex flex-col items-start">
-            <p className="font-satoshi text-[32px] font-medium leading-[32px] text-white whitespace-nowrap">
-              {panel.ordinal}
-            </p>
-            <p className="font-pretendard text-[32px] font-semibold uppercase leading-normal text-white whitespace-nowrap">
-              세대
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {panel.texts.map((t, i) => (
+      {texts.map((t, i) => (
         <div
           key={`t-${i}`}
           className={`absolute flex items-center ${t.centred ? "-translate-x-1/2" : ""}`}
@@ -81,6 +67,43 @@ export default function GenPanel({ gen }: { gen: GenId }) {
           </div>
         </div>
       ))}
+    </>
+  );
+}
+
+/**
+ * One generation's information panel.
+ *
+ * Occupies the identical 323x1136 box as the standing EditorialPanel, so
+ * showing it swaps content without moving anything.
+ */
+export default function GenPanel({ gen }: { gen: GenId }) {
+  const panel = GEN_PANELS[gen];
+
+  return (
+    <div className="absolute inset-0 text-white" data-gen-panel={gen}>
+      <PanelBody assetBase={ASSET} images={panel.images} texts={panel.texts} />
+
+      {/* Heading: the numeral sits beside a stacked English/Korean pair, the
+       * same treatment the timeline's generation labels use. */}
+      <div
+        className="absolute flex flex-col items-center justify-center px-[3px] py-[23px]"
+        style={{ left: panel.headingLeft, top: 0 }}
+      >
+        <div className="flex items-center" style={{ gap: panel.headingGap }}>
+          <p className="font-satoshi text-[72px] font-light uppercase leading-[72px] text-white whitespace-nowrap">
+            {panel.gen}
+          </p>
+          <div className="flex flex-col items-start">
+            <p className="font-satoshi text-[32px] font-medium leading-[32px] text-white whitespace-nowrap">
+              {panel.ordinal}
+            </p>
+            <p className="font-pretendard text-[32px] font-semibold uppercase leading-normal text-white whitespace-nowrap">
+              세대
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

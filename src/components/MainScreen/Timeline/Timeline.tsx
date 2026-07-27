@@ -6,6 +6,7 @@ import { getGroupById, groups, type GroupPosition } from "@/data/groups";
 import { getTimelineRows, type SortMode } from "@/lib/timeline/sortModes";
 import { getTop10Rows } from "@/lib/timeline/top10";
 import { isGroupActive } from "@/lib/timeline/isGroupActive";
+import { typePanelForValue, type TypeId } from "@/components/MainScreen/EditorialPanel/typePanels";
 import { EMPTY_FILTER_STATE, type FilterState } from "@/lib/timeline/filterState";
 import type { ViewMode } from "@/lib/timeline/viewMode";
 import type { CharmRegion } from "@/lib/timeline/charmRegions";
@@ -29,6 +30,7 @@ export default function Timeline({
   viewMode = "default",
   hoveredGeneration = null,
   onHoverGeneration,
+  onHoverType,
   selectedGroupId = null,
   selectedGroupPage = 0,
   onToggleGroup,
@@ -41,6 +43,9 @@ export default function Timeline({
    * leaving the heading restores whatever was showing before. */
   hoveredGeneration?: number | null;
   onHoverGeneration?: (generation: number | null) => void;
+  /** Type sort mode only. Same transient preview contract as the generation
+   * rows: `null` on leave, never written into the Timeline's own state. */
+  onHoverType?: (type: TypeId | null) => void;
   /** Persistent, unlike `hoveredGeneration`: it survives pointer leave and is
    * cleared only by clicking the same charm again, or by the group dropping
    * out of play. */
@@ -125,6 +130,11 @@ export default function Timeline({
       <AnimatePresence initial={false}>
         {rows.map((row, i) => {
           const generation = generationOfRow(row);
+          /* Type rows carry their `type` value as the row key, so the panel is
+           * looked up from the same value the filters use. Top 10 keeps the
+           * generation rows, so it never reaches this branch. */
+          const typeId =
+            !isTop10 && sortMode === "type" ? typePanelForValue(row.config.key) : null;
           return (
             <RowLabel
               key={`label-${i}`}
@@ -133,7 +143,9 @@ export default function Timeline({
               onHover={
                 generation !== null && onHoverGeneration
                   ? (entering) => onHoverGeneration(entering ? generation : null)
-                  : undefined
+                  : typeId !== null && onHoverType
+                    ? (entering) => onHoverType(entering ? typeId : null)
+                    : undefined
               }
             />
           );

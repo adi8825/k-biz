@@ -14,6 +14,8 @@ import NavBar from "./NavBar/NavBar";
 import Timeline from "./Timeline/Timeline";
 import EditorialPanel from "./EditorialPanel/EditorialPanel";
 import GenPanel from "./EditorialPanel/GenPanel";
+import TypePanel from "./EditorialPanel/TypePanel";
+import { TYPE_PANEL_IDS, type TypeId } from "./EditorialPanel/typePanels";
 import GroupDetailPanel from "@/components/GroupPage/GroupDetailPanel/GroupDetailPanel";
 import AboutScreen from "./About/AboutScreen";
 import { getGroupPages } from "@/content/groups";
@@ -66,6 +68,9 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
   /* Transient preview state. Deliberately separate from sort/filter/view so a
    * hover can never persist into the Timeline's real state. */
   const [hoveredGeneration, setHoveredGeneration] = useState<number | null>(null);
+  /* The same transient contract, for the Type sort mode's rows. Kept separate
+   * from `hoveredGeneration` so neither preview can leak into the other. */
+  const [hoveredType, setHoveredType] = useState<TypeId | null>(null);
   /* Persistent, and separate again: clicking a charm sets it, clicking the
    * same charm clears it, and nothing about sort, filters or view mode is
    * touched either way. */
@@ -190,7 +195,16 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
   }, [selectedGroupId, pageCount, reducedMotion]);
 
   const previewedGeneration = selectedGroupId === null ? hoveredGeneration : null;
-  const showEditorial = selectedPages === undefined && previewedGeneration === null;
+  const previewedType = selectedGroupId === null ? hoveredType : null;
+  const showEditorial =
+    selectedPages === undefined && previewedGeneration === null && previewedType === null;
+
+  /* A Type panel only exists while the Type rows do. Changing sort or view mode
+   * replaces the rows outright, so the pointer never leaves the old label and
+   * no `false` ever arrives — the preview is dropped here instead. */
+  useEffect(() => {
+    setHoveredType(null);
+  }, [sortMode, viewMode]);
 
   /* Inside OpeningFlow the flow supplies its replay callback. On the direct
    * route there is no Opening mounted to replay, so History goes to the
@@ -241,6 +255,7 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
             viewMode={viewMode}
             hoveredGeneration={hoveredGeneration}
             onHoverGeneration={setHoveredGeneration}
+            onHoverType={setHoveredType}
             selectedGroupId={selectedGroupId}
             selectedGroupPage={activePage}
             onToggleGroup={handleToggleGroup}
@@ -265,6 +280,17 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
               style={{ opacity: previewedGeneration === gen ? 1 : 0, transition: PANEL_FADE }}
             >
               <GenPanel gen={gen} />
+            </div>
+          ))}
+          {/* The Type family sits in the same slot, on the same fade, so the
+            * two previews are interchangeable and neither can shift layout. */}
+          {TYPE_PANEL_IDS.map((id) => (
+            <div
+              key={id}
+              className="absolute inset-0"
+              style={{ opacity: previewedType === id ? 1 : 0, transition: PANEL_FADE }}
+            >
+              <TypePanel type={id} />
             </div>
           ))}
         </div>

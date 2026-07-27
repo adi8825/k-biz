@@ -25,6 +25,22 @@ export type AboutBlock = {
 };
 
 /** Content height in design px — taller than the 1152 frame, hence scrolling. */
+/**
+ * The About composition starts its first column at x=167, but the sidebar is
+ * an opaque 170px panel drawn above the About layer — so the leftmost 3px of
+ * every column-one line was clipped. Figma overlaps the two frames by the same
+ * 3px; it simply never showed because the Nav_Bar sits under Frame 627 there.
+ *
+ * The whole document is nudged clear of the bar by exactly that difference.
+ * Nothing is resized, re-typed or re-flowed: every authored coordinate keeps
+ * its relationship to every other one, the block just starts at the sidebar's
+ * edge instead of 3px behind it. The rightmost column ends at 2038 of 2048, so
+ * nothing is pushed off the canvas.
+ */
+export const NAV_BAR_WIDTH = 170;
+export const ABOUT_CONTENT_LEFT = 167;
+export const ABOUT_SAFE_SHIFT = NAV_BAR_WIDTH - ABOUT_CONTENT_LEFT;
+
 export const ABOUT_CONTENT_HEIGHT = 1624;
 
 export const ABOUT_TITLE = {

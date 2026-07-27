@@ -77,7 +77,18 @@ export default function Timeline({
   for (const row of rows) {
     for (const item of row.items) {
       positionByGroupId.set(item.group.id, item.position);
-      visibleGroupIds.add(item.group.id);
+      /* Top 10 shows the intersection of the authored selection and the active
+       * filters. An excluded charm leaves the view exactly the way a
+       * non-top-10 charm already does, rather than sitting in the row greyed
+       * out — in a ten-charm row a grey charm still reads as present, which is
+       * why filtering looked like it was not applying here. The position is
+       * still recorded above, so it fades out where it stands.
+       *
+       * Default mode is untouched and keeps its authored dimming. The same
+       * `isGroupActive` decides both, so there is no second filter rule. */
+      if (!isTop10 || isGroupActive(item.group, filterState)) {
+        visibleGroupIds.add(item.group.id);
+      }
     }
   }
 

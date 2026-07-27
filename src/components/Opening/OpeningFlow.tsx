@@ -53,55 +53,9 @@ const FIRST_OPENING4_STAGE = 4;
 /** opening4.4 — the last Opening stage. */
 const LAST_OPENING_STAGE = 7;
 
-/** The Timeline. Terminal: once reached the Opening is over, the flow gives up
- * wheel ownership, and there is no way back. */
+/** The Timeline. Terminal: once reached the Opening is over, the flow stops
+ * listening for clicks, and there is no way back. */
 const TIMELINE_STAGE = 8;
-
-/**
- * Downward wheel distance, in CSS pixels, before a scene gives way.
- * A single mouse notch is ~100px and a trackpad flick clears this almost
- * immediately, so it reads as instant while still swallowing 1-2px jitter.
- */
-const SCROLL_TRIGGER_PX = 24;
-
-/**
- * A pause longer than this discards distance measured so far, so stray noise
- * spread across a long idle never accumulates into a trigger.
- */
-const GESTURE_GAP_MS = 400;
-
-/**
- * Telling a fresh push apart from the momentum still coasting after the last
- * one, using what the wheel input actually looks like rather than a timer.
- *
- * The rule this restores is "one gesture, one step". It used to be enforced by
- * a latch that only a >400ms gap could clear — but the gap was measured from
- * the last event of any kind, including the ones the latch was discarding, so
- * an unbroken stream refreshed it forever and the Opening stalled until the
- * reader happened to pause (which is what clicking really did). None of the
- * three tests below can be starved that way: each reads the current event.
- *
- * Momentum has one defining property — it decays monotonically towards zero,
- * as an unbroken high-frequency stream. So the gesture is over when:
- *
- *   1. the stream is too sparse to be one physical glide (mouse notches, or
- *      simply letting go and starting again), or
- *   2. a delta re-accelerates clearly past the decayed tail, or
- *   3. deltas stop decaying at all for several events, which is a finger still
- *      pushing rather than inertia running out.
- */
-const MOMENTUM_GAP_MS = 120;
-const REACCEL_RATIO = 2.5;
-/** Below this, a plateau is the tail's 1-2px dribble, not sustained input. */
-const SUSTAINED_MIN_PX = 8;
-const SUSTAINED_EVENTS = 3;
-
-/** Normalises wheel deltas, which arrive in lines or pages on some devices. */
-function wheelPixels(event: WheelEvent): number {
-  if (event.deltaMode === 1) return event.deltaY * 16;
-  if (event.deltaMode === 2) return event.deltaY * window.innerHeight;
-  return event.deltaY;
-}
 
 /** Development-only scaffolding is dropped from the production bundle. */
 const IS_PRODUCTION = process.env.NODE_ENV === "production";
@@ -117,29 +71,22 @@ export default function OpeningFlow() {
   // hidden in the initial HTML and there is no flash before hydration.
   const [stage, setStage] = useState<Stage>(FIRST_STAGE);
 
-  // Mirrors `stage` for use inside the wheel handler, which must read the
+  // Mirrors `stage` for use inside the click handler, which must read the
   // current value synchronously without re-subscribing on every change.
   const stageRef = useRef<Stage>(FIRST_STAGE);
-  const travelled = useRef(0);
-  const lastEventAt = useRef(0);
   const locked = useRef(false);
-  /** True while the gesture that last moved the sequence is still coasting. */
-  const gestureSpent = useRef(false);
-  /** Smallest delta seen since then — the tail's decay floor. */
-  const tailFloor = useRef(0);
-  /** Consecutive non-decaying deltas, which inertia does not produce. */
-  const sustained = useRef(0);
   /** Bumped whenever Opening4 is entered from an earlier stage, so its
    * one-time charm entrance replays on re-entry. */
   const [entranceKey, setEntranceKey] = useState(0);
   /** Mounted once opening4.4 is reached, and never unmounted, so the Timeline
    * has a full stage to load and keeps its own state afterwards. */
   const [timelineMounted, setTimelineMounted] = useState(false);
-  /** True once the Timeline is fully on screen. Releases wheel ownership. */
+  /** True once the Timeline is fully on screen. Releases click ownership. */
   const [finished, setFinished] = useState(false);
 
-  /** The single place a stage change is committed. Both the wheel handler and
-   * the CTA go through here, so there is one transition implementation. */
+  /** The single place a stage change is committed. The click handler, the
+   * automatic Opening4 sequence and the CTA all go through here, so there is
+   * one transition implementation. */
   const commitStage = useCallback((next: Stage) => {
     if (next >= FIRST_OPENING4_STAGE && stageRef.current < FIRST_OPENING4_STAGE) {
       setEntranceKey((k) => k + 1);
@@ -150,9 +97,9 @@ export default function OpeningFlow() {
   }, []);
 
   /**
-   * The final transition. Shared verbatim by the downward gesture and the CTA.
-   * Guarded so a momentum tail, a second gesture or repeated clicks during the
-   * cross-fade cannot start it twice.
+   * The final transition. Shared verbatim by the automatic sequence and the
+   * CTA. Guarded so repeated clicks during the cross-fade cannot start it
+   * twice.
    */
   const enterTimeline = useCallback(() => {
     if (locked.current) return;
@@ -162,89 +109,39 @@ export default function OpeningFlow() {
 
   useEffect(() => {
     // Once the Timeline is up the flow stops listening entirely — nothing is
-    // intercepted, nothing is prevented, and upward scrolling cannot return.
+    // intercepted and there is no way back.
     if (finished) return;
 
-    function onWheel(event: WheelEvent) {
-      // Terminal stage: the Opening no longer responds to the wheel at all.
-      if (stageRef.current >= TIMELINE_STAGE) return;
-
-      // From opening4.1 the sequence plays itself on its own timers. Returning
-      // before anything is read or written means a momentum tail, a fresh
-      // gesture or a hand resting on the trackpad cannot advance, skip,
-      // accelerate or restart a phase — and nothing is banked here to fire the
-      // moment the Timeline arrives.
-      if (stageRef.current >= FIRST_OPENING4_STAGE) return;
-
-      const now = performance.now();
-      const gap = now - lastEventAt.current;
-      lastEventAt.current = now;
-
-      // A quiet pause discards whatever was measured before it.
-      if (gap > GESTURE_GAP_MS) travelled.current = 0;
-
-      // Nothing accumulates while the cross-fade runs, so the next advance
-      // always needs a fresh SCROLL_TRIGGER_PX of movement after it lifts.
-      if (locked.current) return;
-
-      const pixels = wheelPixels(event);
-      if (pixels === 0) return;
-
-      // Still coasting on the gesture that moved the sequence last time? Then
-      // this event belongs to that gesture and must not move it again.
-      if (gestureSpent.current) {
-        const magnitude = Math.abs(pixels);
-        const separateStream = gap > MOMENTUM_GAP_MS;
-        const reAccelerated = magnitude > tailFloor.current * REACCEL_RATIO;
-        if (magnitude >= SUSTAINED_MIN_PX && magnitude >= tailFloor.current) {
-          sustained.current += 1;
-        } else {
-          sustained.current = 0;
-        }
-        const stillPushing = sustained.current >= SUSTAINED_EVENTS;
-
-        if (!separateStream && !reAccelerated && !stillPushing) {
-          if (magnitude < tailFloor.current) tailFloor.current = magnitude;
-          return;
-        }
-        gestureSpent.current = false;
-        travelled.current = 0;
-        sustained.current = 0;
-      }
-
-      // Reversing direction mid-gesture restarts the measurement rather than
-      // cancelling out against distance already travelled.
-      if (travelled.current !== 0 && Math.sign(pixels) !== Math.sign(travelled.current)) {
-        travelled.current = 0;
-      }
-      travelled.current += pixels;
-
-      if (Math.abs(travelled.current) < SCROLL_TRIGGER_PX) return;
-      const direction = travelled.current > 0 ? 1 : -1;
-      travelled.current = 0;
-
-      const next = clampStage(stageRef.current + direction);
-      // Already at an end of the sequence: nothing moves, and the gesture is
-      // not spent, so the visitor can simply scroll the other way.
-      if (next === stageRef.current) return;
-
-      // This gesture has now moved the sequence. Everything it goes on to
-      // emit is its own momentum until one of the three tests above says
-      // otherwise.
-      gestureSpent.current = true;
-      tailFloor.current = Math.abs(pixels);
-      sustained.current = 0;
-
-      if (next === TIMELINE_STAGE) {
-        enterTimeline();
+    /**
+     * One click, one scene. The whole authored canvas is the target, so there
+     * is no button to draw and nothing about the composition changes.
+     *
+     * `locked` is the only guard needed and it does all the work the old
+     * gesture machinery used to: it is set the instant a stage is committed and
+     * released a full cross-fade later, so a held button (which fires once, on
+     * release), a double click (whose second click lands inside the lock) and
+     * frantic repeated clicking are all swallowed. Nothing is queued — a click
+     * arriving during the lock is dropped outright, not replayed afterwards.
+     */
+    function onClick(event: MouseEvent) {
+      // The dev stage-jumper is inside the canvas; its own clicks must not also
+      // advance a stage. Compiled out of production either way.
+      if (!IS_PRODUCTION && (event.target as HTMLElement)?.closest?.("[data-dev-control]")) {
         return;
       }
+      // From opening4.1 the sequence plays itself. Clicks, like wheel input,
+      // cannot advance, skip, accelerate or restart it.
+      if (stageRef.current >= FIRST_OPENING4_STAGE) return;
+      if (locked.current) return;
+
+      const next = clampStage(stageRef.current + 1);
+      if (next === stageRef.current) return;
       commitStage(next);
     }
 
-    window.addEventListener("wheel", onWheel, { passive: true });
-    return () => window.removeEventListener("wheel", onWheel);
-  }, [finished, commitStage, enterTimeline]);
+    window.addEventListener("click", onClick);
+    return () => window.removeEventListener("click", onClick);
+  }, [finished, commitStage]);
 
   /**
    * From opening4.1 onwards the sequence advances itself.
@@ -296,34 +193,24 @@ export default function OpeningFlow() {
 
   /**
    * Replays the Opening from the attract screen. The History button in the
-   * Timeline sidebar is the only route back — the wheel stays terminal.
+   * Timeline sidebar is the only route back — the Opening stays terminal.
    *
    * `timelineMounted` is deliberately left alone, so MainScreen is never
    * unmounted and keeps its sort, filter and view-mode state while the Opening
    * plays over the top of it. Clearing `finished` remounts the Opening layers
-   * and restores wheel progression for the replay.
+   * and restores click progression for the replay.
    */
   const replayOpening = useCallback(() => {
-    travelled.current = 0;
-    lastEventAt.current = 0;
     locked.current = false;
-    gestureSpent.current = false;
-    tailFloor.current = 0;
-    sustained.current = 0;
     stageRef.current = FIRST_STAGE;
     setFinished(false);
     setStage(FIRST_STAGE);
   }, []);
 
   /** Used only by the temporary control below. Stepping back off the terminal
-   * stage re-arms the wheel, which only the dev control can do. */
+   * stage re-arms the Opening, which only the dev control can do. */
   function jumpTo(next: Stage) {
-    travelled.current = 0;
-    lastEventAt.current = 0;
     locked.current = false;
-    gestureSpent.current = false;
-    tailFloor.current = 0;
-    sustained.current = 0;
     if (next >= FIRST_OPENING4_STAGE && stageRef.current < FIRST_OPENING4_STAGE) {
       setEntranceKey((k) => k + 1);
     }
@@ -399,7 +286,7 @@ export default function OpeningFlow() {
         * of the artwork for the whole exhibition. Same guard the plate census
         * in Opening1 already uses. */}
       {!IS_PRODUCTION && (
-      <div className="fixed bottom-4 left-4 z-50 flex gap-2 rounded bg-black/80 p-2 font-mono text-[11px] text-white">
+      <div data-dev-control className="fixed bottom-4 left-4 z-50 flex gap-2 rounded bg-black/80 p-2 font-mono text-[11px] text-white">
         <span className="px-1 py-1 text-yellow-400">TEMP</span>
         <button
           type="button"
@@ -456,6 +343,7 @@ export default function OpeningFlow() {
       {!IS_PRODUCTION && (
         <Link
           href="/"
+          data-dev-control
           data-dev-link="main-screen"
           className="fixed bottom-4 right-4 z-50 rounded bg-black/80 px-3 py-2 font-mono text-[11px] text-white"
         >

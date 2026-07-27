@@ -9,6 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { ABOUT_SAFE_SHIFT } from "@/components/MainScreen/About/aboutContent";
 
 /** Permanent playlist. No `si` parameter: that one is a share token and
  * expires. Adding, removing or reordering tracks inside this playlist needs
@@ -31,7 +32,7 @@ const IFRAME_API_SRC = "https://open.spotify.com/embed/iframe-api/v1";
  * Spotify's own 100% x 80 player. It ends at x = 1921, well inside the grid's
  * 2035 right edge, and at y = 136, well above the columns.
  */
-export const ABOUT_PLAYER_SLOT = { x: 1601, y: 40, width: 320 } as const;
+export const ABOUT_PLAYER_SLOT = { x: 1601 + ABOUT_SAFE_SHIFT, y: 40, width: 320 } as const;
 
 /** How long to wait for the embed to confirm playback before offering the
  * real player instead. Generous, because a cold embed can take a few seconds

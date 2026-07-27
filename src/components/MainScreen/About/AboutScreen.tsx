@@ -4,6 +4,7 @@ import { Fragment, useEffect, type UIEvent } from "react";
 import { useSpotify } from "@/components/Spotify/SpotifyProvider";
 import {
   ABOUT_CONTENT_HEIGHT,
+  ABOUT_SAFE_SHIFT,
   ABOUT_INTRO,
   ABOUT_SECTIONS,
   ABOUT_TITLE,
@@ -97,7 +98,10 @@ export default function AboutScreen({ open }: { open: boolean }) {
     >
       {/* The document's own height, so the screen scrolls rather than clipping
        * its last rows. Every child sits at its authored frame coordinate. */}
-      <div className="relative" style={{ width: 2048, height: ABOUT_CONTENT_HEIGHT }}>
+      <div
+        className="relative"
+        style={{ width: 2048, height: ABOUT_CONTENT_HEIGHT, marginLeft: ABOUT_SAFE_SHIFT }}
+      >
         <p
           className="absolute font-satoshi text-[32px] font-medium leading-[32px] text-white"
           style={{ left: ABOUT_TITLE.en.x, top: ABOUT_TITLE.en.y, width: ABOUT_TITLE.en.width }}

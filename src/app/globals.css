@@ -1,0 +1,203 @@
+@import "pretendard/dist/web/static/pretendard.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background-color: #14081a;
+  color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Filter dimming.
+ *
+ * Sort movement is driven by Framer Motion on `transform`; this touches only
+ * `opacity`, so the two run on separate properties and neither cancels the
+ * other when a filter is toggled mid-move.
+ *
+ * The transition is directional: the rule that applies is whichever matches the
+ * element's *new* state, so dimming out uses the slower 720ms and coming back
+ * uses the quicker 520ms. */
+.charm-dim {
+  transition: opacity 520ms ease-out;
+}
+
+.charm-dim[data-inactive="true"] {
+  transition: opacity 720ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .charm-dim,
+  .charm-dim[data-inactive="true"] {
+    transition: none;
+  }
+}
+
+/* Hover sway for the hanging charms.
+ *
+ * A pendant on a string does not swing evenly: it is nudged once, swings back
+ * a little less far, again less, and then hangs still. So the amplitude decays
+ * across the keyframes -- 1 -> -0.42 -> 0.17 -> -0.06 -- and the last third of
+ * every cycle sits at rest.
+ *
+ * The charm is still until the pointer touches it, then runs exactly one of
+ * these cycles. Because the track both starts and ends at 0deg, the class can
+ * be dropped on `animationend` with nothing to snap back from -- which is how
+ * a charm the pointer has already left still settles on its own.
+ *
+ * Rotation only, from `transform-origin: 50% 0`, which is the top loop each
+ * charm hangs by. Per-charm angle and duration come from `sway.ts`. Sits on
+ * its own element inside the charm because the wrapper's transform belongs to
+ * Framer Motion's position animation. */
+@keyframes charm-sway {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(var(--sway-angle, 0deg));
+  }
+  27% {
+    transform: rotate(calc(var(--sway-angle, 0deg) * -0.42));
+  }
+  43% {
+    transform: rotate(calc(var(--sway-angle, 0deg) * 0.17));
+  }
+  56% {
+    transform: rotate(calc(var(--sway-angle, 0deg) * -0.06));
+  }
+  66%,
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.charm-sway {
+  transform-origin: 50% 0;
+}
+
+/* One cycle per hover. The attribute is removed on `animationend`, not on
+ * mouseleave, so an interrupted swing plays itself out. */
+.charm-sway[data-swaying="true"] {
+  animation: charm-sway var(--sway-duration, 6s) ease-in-out 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .charm-sway[data-swaying="true"] {
+    animation: none;
+  }
+}
+
+/* Sidebar hover labels.
+ *
+ * Shared by every NavBar item that reveals text on hover — History, the sort
+ * rows and the filter rows. The label stays mounted and only its opacity
+ * changes, so it can fade out on leave instead of being unmounted mid-fade,
+ * and so its box never affects the icon beside it.
+ *
+ * Directional in the same way as `.charm-dim`: whichever rule matches the
+ * element's new state wins, giving a slightly longer fade in than out. The
+ * charm timings themselves (520/720ms) are far too slow for a pointer
+ * interaction, so these are their own values. */
+.nav-label {
+  opacity: 0;
+  transition: opacity 160ms ease-out;
+}
+
+.nav-label[data-shown="true"] {
+  opacity: 1;
+  transition: opacity 200ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-label,
+  .nav-label[data-shown="true"] {
+    transition: none;
+  }
+}
+
+/* Continuous breathing for the Opening's image-filled plates.
+ *
+ * Per-plate timing arrives as custom properties from `lib/opening/breathing.ts`;
+ * see that file for how the values are derived and why. `alternate` gives a
+ * symmetric breath with no seam at the loop point, so the cycle never jumps.
+ *
+ * Opacity is the only property here, so a plate can never move, scale or
+ * rotate however the timings are retuned. This element sits *inside* the
+ * scene-transition layer, and nested opacities multiply, so an outgoing scene
+ * still reaches a true 0 regardless of where its plates are in the cycle. */
+@keyframes opening-plate-breathe {
+  0%,
+  55% {
+    opacity: 1;
+    animation-timing-function: ease-in;
+  }
+  78% {
+    opacity: var(--breathe-min);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Photographs fade the whole way to 0 and back, so the shape of the curve
+ * matters more than the endpoints.
+ *
+ * The per-segment timing functions are the point: `ease-in` on the way down
+ * leaves full opacity slowly but arrives at 0 quickly, and `ease-out` on the
+ * way up leaves 0 quickly. A symmetric ease-in-out instead lingers at both
+ * extremes, which held images invisible ~14% of the time and let as many as
+ * seven neighbouring plates vanish together. Shaped this way that drops to
+ * ~3% and at most four — the movement still reads as gentle because it is
+ * slow where the image is actually visible.
+ *
+ * 0% and 100% are both 1, so the loop closes with no jump.
+ *
+ * Only the photograph carries this class — the outline it sits in is a
+ * sibling layer and stays fully visible throughout, so the lattice never
+ * breaks up. */
+.opening-breathe {
+  animation: opening-plate-breathe var(--breathe-duration) var(--breathe-ease, ease-in-out)
+    var(--breathe-delay) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .opening-breathe {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* opening4.1 charm entrance.
+ *
+ * The only scale anywhere in the Opening, and Figma defines it explicitly:
+ * 0.5 -> 1 with easeOut. It runs once, on the charm inside Opening4, and never
+ * touches the scene-transition layer above it — that stays opacity-only.
+ *
+ * `both` holds the start value through the delay and the end value after, so
+ * the charm never flashes at full size before the animation begins. */
+@keyframes opening4-charm-enter {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.opening4-charm-enter {
+  animation: opening4-charm-enter var(--enter-duration) cubic-bezier(0, 0, 0.58, 1)
+    var(--enter-delay) both;
+  transform-origin: center center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .opening4-charm-enter {
+    animation: none;
+  }
+}

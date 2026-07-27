@@ -1,0 +1,2984 @@
+[
+  {
+    "id": "seo-taiji-and-boys",
+    "name": "Seo Taiji and Boys",
+    "generation": 1,
+    "debutYear": 1992,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 3,
+    "nationality": 100.0,
+    "status": false,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283808",
+        "figmaName": "Seo Taiji and Boys",
+        "asset": "/charms/Seo_Taiji_and_Boys.svg",
+        "x": 370.0,
+        "y": 48.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "turbo",
+    "name": "Turbo",
+    "generation": 1,
+    "debutYear": 1995,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 3,
+    "nationality": 100.0,
+    "status": false,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283810",
+        "figmaName": "Turbo",
+        "asset": "/charms/Turbo.svg",
+        "x": 468.0,
+        "y": 71.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "hot",
+    "name": "H.O.T. ",
+    "generation": 1,
+    "debutYear": 1996,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 100.0,
+    "status": false,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283812",
+        "figmaName": "H.O.T",
+        "asset": "/charms/H.O.T.svg",
+        "x": 566.0,
+        "y": 89.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "sechs-kies",
+    "name": "Sechs Kies ",
+    "generation": 1,
+    "debutYear": 1997,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 6,
+    "nationality": 100.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283814",
+        "figmaName": "Sechs Kies",
+        "asset": "/charms/Sechs_Kies.svg",
+        "x": 664.0,
+        "y": 106.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "baby-vox",
+    "name": "Baby V.O.X",
+    "generation": 1,
+    "debutYear": 1997,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 100.0,
+    "status": false,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283816",
+        "figmaName": "Baby V.O.X",
+        "asset": "/charms/Baby_V.O.X.svg",
+        "x": 762.0,
+        "y": 118.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "nrg",
+    "name": "NRG",
+    "generation": 1,
+    "debutYear": 1997,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 100.0,
+    "status": false,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283818",
+        "figmaName": "NRG",
+        "asset": "/charms/NRG.svg",
+        "x": 860.0,
+        "y": 129.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "ses",
+    "name": "S.E.S.",
+    "generation": 1,
+    "debutYear": 1997,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 3,
+    "nationality": 100.0,
+    "status": false,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283820",
+        "figmaName": "S.E.S.",
+        "asset": "/charms/S.E.S..svg",
+        "x": 958.0,
+        "y": 132.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "shinhwa",
+    "name": "Shinhwa",
+    "generation": 1,
+    "debutYear": 1998,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 6,
+    "nationality": 100.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283822",
+        "figmaName": "Shinhwa",
+        "asset": "/charms/Shinhwa.svg",
+        "x": 1056.0,
+        "y": 126.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "finkl",
+    "name": "Fin.K.L",
+    "generation": 1,
+    "debutYear": 1998,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 4,
+    "nationality": 100.0,
+    "status": false,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283824",
+        "figmaName": "Fin.K.L",
+        "asset": "/charms/Fin.K.L.svg",
+        "x": 1154.0,
+        "y": 114.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "koyote",
+    "name": "Koyote",
+    "generation": 1,
+    "debutYear": 1998,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 3,
+    "nationality": 100.0,
+    "status": true,
+    "top10": true,
+    "type": "Co_Ed",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283826",
+        "figmaName": "g.o.d",
+        "asset": "/charms/Koyote.svg",
+        "x": 1252.0,
+        "y": 100.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "god",
+    "name": "g.o.d",
+    "generation": 1,
+    "debutYear": 1999,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 100.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283828",
+        "figmaName": "g.o.d",
+        "asset": "/charms/g.o.d.svg",
+        "x": 1349.0,
+        "y": 84.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "click-b",
+    "name": "Click-B",
+    "generation": 1,
+    "debutYear": 1999,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 100.0,
+    "status": false,
+    "top10": false,
+    "type": "Band",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283830",
+        "figmaName": "Click-B",
+        "asset": "/charms/Click_B.svg",
+        "x": 1446.0,
+        "y": 64.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "chakra",
+    "name": "Chakra",
+    "generation": 1,
+    "debutYear": 2000,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 4,
+    "nationality": 100.0,
+    "status": false,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283832",
+        "figmaName": "Chakra",
+        "asset": "/charms/Chakra.svg",
+        "x": 1543.0,
+        "y": 43.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "jewelry",
+    "name": "Jewelry",
+    "generation": 1,
+    "debutYear": 2001,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 4,
+    "nationality": 100.0,
+    "status": false,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283834",
+        "figmaName": "Jewelry",
+        "asset": "/charms/Jewelry.svg",
+        "x": 1647.0,
+        "y": 21.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "tvxq",
+    "name": "TVXQ",
+    "generation": 2,
+    "debutYear": 2003,
+    "formation": "Regular",
+    "language": "JP",
+    "memberCount": 5,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283836",
+        "figmaName": "TVXQ",
+        "asset": "/charms/TVXQ.svg",
+        "x": 367.0,
+        "y": 259.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "super-junior",
+    "name": "Super Junior ",
+    "generation": 2,
+    "debutYear": 2005,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 13,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283840",
+        "figmaName": "Super Junior",
+        "asset": "/charms/Super Junior.svg",
+        "x": 431.0,
+        "y": 273.0,
+        "width": 38.0,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "brown-eyed-girls",
+    "name": "Brown Eyed Girls",
+    "generation": 2,
+    "debutYear": 2006,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 4,
+    "nationality": 100.0,
+    "status": false,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283844",
+        "figmaName": "Wonder Girls",
+        "asset": "/charms/Brown_Eyed_Grils.svg",
+        "x": 495.0,
+        "y": 287.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "bigbang",
+    "name": "BIGBANG",
+    "generation": 2,
+    "debutYear": 2006,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 100.0,
+    "status": false,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283848",
+        "figmaName": "BIGBANG",
+        "asset": "/charms/BIGBANG.svg",
+        "x": 559.0,
+        "y": 299.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "wonder-girls",
+    "name": "Wonder Girls",
+    "generation": 2,
+    "debutYear": 2007,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 100.0,
+    "status": false,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283852",
+        "figmaName": "Wonder Girls",
+        "asset": "/charms/Wonder_Girls.svg",
+        "x": 623.0,
+        "y": 310.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "kara",
+    "name": "KARA",
+    "generation": 2,
+    "debutYear": 2007,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 100.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283856",
+        "figmaName": "KARA",
+        "asset": "/charms/KARA.svg",
+        "x": 687.0,
+        "y": 320.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "ft-island",
+    "name": "F.T. Island",
+    "generation": 2,
+    "debutYear": 2007,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Band",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283860",
+        "figmaName": "Wonder Girls",
+        "asset": "/charms/FT_ISLAND.svg",
+        "x": 751.0,
+        "y": 329.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "snsd",
+    "name": "SNSD / Girls' Generation",
+    "generation": 2,
+    "debutYear": 2007,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 9,
+    "nationality": 100.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283866",
+        "figmaName": "Girls' Generation",
+        "asset": "/charms/Girls_Generation.svg",
+        "x": 815.0,
+        "y": 336.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "shinee",
+    "name": "SHINee",
+    "generation": 2,
+    "debutYear": 2008,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 100.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283870",
+        "figmaName": "SHINee",
+        "asset": "/charms/SHINee.svg",
+        "x": 879.0,
+        "y": 341.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "u-kiss",
+    "name": "U-KISS",
+    "generation": 2,
+    "debutYear": 2008,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283838",
+        "figmaName": "Wonder Girls",
+        "asset": "/charms/U_KISS.svg",
+        "x": 1007.0,
+        "y": 343.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "after-school",
+    "name": "After School",
+    "generation": 2,
+    "debutYear": 2009,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 9,
+    "nationality": 100.0,
+    "status": false,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283842",
+        "figmaName": "After School",
+        "asset": "/charms/After School.svg",
+        "x": 1071.0,
+        "y": 338.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "2ne1",
+    "name": "2NE1",
+    "generation": 2,
+    "debutYear": 2009,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 4,
+    "nationality": 100.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283846",
+        "figmaName": "2NE1",
+        "asset": "/charms/2NE1.svg",
+        "x": 1135.0,
+        "y": 331.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "4minute",
+    "name": "4minute",
+    "generation": 2,
+    "debutYear": 2009,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 100.0,
+    "status": false,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283850",
+        "figmaName": "4minute",
+        "asset": "/charms/4minute.svg",
+        "x": 1199.0,
+        "y": 323.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "fx",
+    "name": "f(x)",
+    "generation": 2,
+    "debutYear": 2009,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 75.0,
+    "status": false,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283854",
+        "figmaName": "f(x)",
+        "asset": "/charms/f(x).svg",
+        "x": 1263.0,
+        "y": 313.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "beast",
+    "name": "Beast",
+    "generation": 2,
+    "debutYear": 2009,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 6,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283858",
+        "figmaName": "Beast",
+        "asset": "/charms/Beast.svg",
+        "x": 1327.0,
+        "y": 302.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "cnblue",
+    "name": "CNBLUE",
+    "generation": 2,
+    "debutYear": 2010,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 4,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Band",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283862",
+        "figmaName": "Wonder Girls",
+        "asset": "/charms/CNBLUE.svg",
+        "x": 1391.0,
+        "y": 290.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "sistar",
+    "name": "SISTAR",
+    "generation": 2,
+    "debutYear": 2010,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 4,
+    "nationality": 100.0,
+    "status": false,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283868",
+        "figmaName": "SISTAR",
+        "asset": "/charms/SISTAR.svg",
+        "x": 1455.0,
+        "y": 276.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "infinite",
+    "name": "Infinite",
+    "generation": 2,
+    "debutYear": 2010,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283872",
+        "figmaName": "Infinite",
+        "asset": "/charms/Infinite.svg",
+        "x": 1519.0,
+        "y": 262.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "miss-a",
+    "name": "miss A",
+    "generation": 2,
+    "debutYear": 2011,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 4,
+    "nationality": 50.0,
+    "status": false,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283876",
+        "figmaName": "miss A",
+        "asset": "/charms/miss_A.svg",
+        "x": 1583.0,
+        "y": 247.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "block-b",
+    "name": "Block B",
+    "generation": 2,
+    "debutYear": 2011,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 6,
+    "nationality": 100.0,
+    "status": false,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283864",
+        "figmaName": "Block B",
+        "asset": "/charms/Block B.svg",
+        "x": 1647.0,
+        "y": 230.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "bap",
+    "name": "B.A.P",
+    "generation": 3,
+    "debutYear": 2012,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 100.0,
+    "status": false,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283888",
+        "figmaName": "B.A.P",
+        "asset": "/charms/B.A.P.svg",
+        "x": 371.0,
+        "y": 470.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "btob",
+    "name": "BTOB",
+    "generation": 3,
+    "debutYear": 2012,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283886",
+        "figmaName": "BTOB",
+        "asset": "/charms/BTOB.svg",
+        "x": 420.51,
+        "y": 481.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "exo",
+    "name": "EXO",
+    "generation": 3,
+    "debutYear": 2012,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 12,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283884",
+        "figmaName": "EXO",
+        "asset": "/charms/EXO.svg",
+        "x": 470.02,
+        "y": 492.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "vixx",
+    "name": "VIXX",
+    "generation": 3,
+    "debutYear": 2012,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 6,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283882",
+        "figmaName": "VIXX",
+        "asset": "/charms/VIXX.svg",
+        "x": 519.53,
+        "y": 502.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "bts",
+    "name": "BTS",
+    "generation": 3,
+    "debutYear": 2013,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 100.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283880",
+        "figmaName": "BTS",
+        "asset": "/charms/BTS.svg",
+        "x": 569.04,
+        "y": 512.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ],
+    "charm": {
+      "color": "#c97dff"
+    }
+  },
+  {
+    "id": "got7",
+    "name": "GOT7",
+    "generation": 3,
+    "debutYear": 2014,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283878",
+        "figmaName": "GOT7",
+        "asset": "/charms/GOT7.svg",
+        "x": 618.55,
+        "y": 521.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "mamamoo",
+    "name": "MAMAMOO",
+    "generation": 3,
+    "debutYear": 2014,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 4,
+    "nationality": 100.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283892",
+        "figmaName": "MAMAMOO",
+        "asset": "/charms/MAMAMOO.svg",
+        "x": 668.06,
+        "y": 529.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "red-velvet",
+    "name": "Red Velvet",
+    "generation": 3,
+    "debutYear": 2014,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 100.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283896",
+        "figmaName": "Red_Velvet",
+        "asset": "/charms/Red_Velvet.svg",
+        "x": 717.57,
+        "y": 536.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "winner",
+    "name": "Winner",
+    "generation": 3,
+    "debutYear": 2014,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283900",
+        "figmaName": "Winner",
+        "asset": "/charms/Winner.svg",
+        "x": 767.08,
+        "y": 542.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "gfriend",
+    "name": "GFriend",
+    "generation": 3,
+    "debutYear": 2015,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 6,
+    "nationality": 100.0,
+    "status": false,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283904",
+        "figmaName": "GFriend",
+        "asset": "/charms/GFriend.svg",
+        "x": 816.59,
+        "y": 547.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "oh-my-girl",
+    "name": "Oh My Girl",
+    "generation": 3,
+    "debutYear": 2015,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 8,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283908",
+        "figmaName": "Oh_My_Girl",
+        "asset": "/charms/Oh_My_Girl.svg",
+        "x": 866.1,
+        "y": 551.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "monsta-x",
+    "name": "Monsta X",
+    "generation": 3,
+    "debutYear": 2015,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283912",
+        "figmaName": "Monsta_X ",
+        "asset": "/charms/Monsta_X.svg",
+        "x": 915.61,
+        "y": 553.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "nflying",
+    "name": "N.Flying",
+    "generation": 3,
+    "debutYear": 2015,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Band",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283918",
+        "figmaName": "N_Flying",
+        "asset": "/charms/N_Flying.svg",
+        "x": 965.12,
+        "y": 554.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "seventeen",
+    "name": "Seventeen",
+    "generation": 3,
+    "debutYear": 2015,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 13,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283922",
+        "figmaName": "Seventeen",
+        "asset": "/charms/Seventeen.svg",
+        "x": 1014.63,
+        "y": 552.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "ikon",
+    "name": "iKON",
+    "generation": 3,
+    "debutYear": 2015,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283926",
+        "figmaName": "iKon",
+        "asset": "/charms/iKon.svg",
+        "x": 1064.14,
+        "y": 549.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "twice",
+    "name": "TWICE",
+    "generation": 3,
+    "debutYear": 2015,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 9,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283890",
+        "figmaName": "Twice",
+        "asset": "/charms/Twice.svg",
+        "x": 1113.65,
+        "y": 544.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "astro",
+    "name": "ASTRO",
+    "generation": 3,
+    "debutYear": 2016,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 6,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283894",
+        "figmaName": "ASTRO",
+        "asset": "/charms/ASTRO.svg",
+        "x": 1163.16,
+        "y": 538.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "nct",
+    "name": "NCT",
+    "generation": 3,
+    "debutYear": 2016,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 24,
+    "nationality": 50.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283898",
+        "figmaName": "NCT",
+        "asset": "/charms/NCT.svg",
+        "x": 1212.67,
+        "y": 531.0,
+        "width": 38.0,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "ioi",
+    "name": "I.O.I",
+    "generation": 3,
+    "debutYear": 2016,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 11,
+    "nationality": 75.0,
+    "status": false,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283902",
+        "figmaName": "IOI",
+        "asset": "/charms/IOI.svg",
+        "x": 1261.87,
+        "y": 523.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "blackpink",
+    "name": "BLACKPINK",
+    "generation": 3,
+    "debutYear": 2016,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 4,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283906",
+        "figmaName": "BLACKPINK",
+        "asset": "/charms/BLACKPINK.svg",
+        "x": 1311.38,
+        "y": 515.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "sf9",
+    "name": "SF9",
+    "generation": 3,
+    "debutYear": 2017,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 9,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283910",
+        "figmaName": "SF9",
+        "asset": "/charms/SF9.svg",
+        "x": 1360.89,
+        "y": 506.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "pentagon",
+    "name": "Pentagon",
+    "generation": 3,
+    "debutYear": 2017,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 10,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283914",
+        "figmaName": "Pentagon",
+        "asset": "/charms/Pentagon.svg",
+        "x": 1410.4,
+        "y": 496.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "momoland",
+    "name": "MOMOLAND",
+    "generation": 3,
+    "debutYear": 2017,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 9,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283920",
+        "figmaName": "MOMOLAND",
+        "asset": "/charms/MOMOLAND.svg",
+        "x": 1459.91,
+        "y": 486.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "dreamcatcher",
+    "name": "Dreamcatcher",
+    "generation": 3,
+    "debutYear": 2017,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283924",
+        "figmaName": "Dreamcatcher",
+        "asset": "/charms/Dreamcatcher.svg",
+        "x": 1509.42,
+        "y": 474.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "kard",
+    "name": "KARD",
+    "generation": 3,
+    "debutYear": 2017,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 4,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Co_Ed",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283928",
+        "figmaName": "KARD",
+        "asset": "/charms/KARD.svg",
+        "x": 1558.92,
+        "y": 463.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "wanna-one",
+    "name": "Wanna One",
+    "generation": 3,
+    "debutYear": 2017,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 11,
+    "nationality": 75.0,
+    "status": false,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283916",
+        "figmaName": "WannaOne",
+        "asset": "/charms/WannaOne.svg",
+        "x": 1608.43,
+        "y": 451.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "the-boyz",
+    "name": "The Boyz",
+    "generation": 3,
+    "debutYear": 2017,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 12,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283942",
+        "figmaName": "The_Boyz",
+        "asset": "/charms/The_Boyz.svg",
+        "x": 1657.94,
+        "y": 439.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "stray-kids",
+    "name": "Stray Kids",
+    "generation": 4,
+    "debutYear": 2018,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 8,
+    "nationality": 100.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283938",
+        "figmaName": "Stray_Kids",
+        "asset": "/charms/Stray_Kids.svg",
+        "x": 414.0,
+        "y": 690.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "ateez",
+    "name": "ATEEZ",
+    "generation": 4,
+    "debutYear": 2018,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 8,
+    "nationality": 100.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283936",
+        "figmaName": "ATEEZ",
+        "asset": "/charms/ATEEZ.svg",
+        "x": 462.0,
+        "y": 700.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "iz-one",
+    "name": "IZ*ONE",
+    "generation": 4,
+    "debutYear": 2018,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 12,
+    "nationality": 75.0,
+    "status": false,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283934",
+        "figmaName": "IZ_One",
+        "asset": "/charms/IZ_One.svg",
+        "x": 510.0,
+        "y": 710.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "boy-story",
+    "name": "BOY STORY",
+    "generation": 4,
+    "debutYear": 2018,
+    "formation": "Global_Project",
+    "language": "CN",
+    "memberCount": 6,
+    "nationality": 0.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283932",
+        "figmaName": "BOY_Story",
+        "asset": "/charms/BOY_Story.svg",
+        "x": 558.0,
+        "y": 719.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "itzy",
+    "name": "ITZY",
+    "generation": 4,
+    "debutYear": 2019,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 100.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283930",
+        "figmaName": "ITZY",
+        "asset": "/charms/ITZY.svg",
+        "x": 606.0,
+        "y": 729.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "txt",
+    "name": "TXT / Tomorrow X Together",
+    "generation": 4,
+    "debutYear": 2019,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283946",
+        "figmaName": "TXT",
+        "asset": "/charms/TXT.svg",
+        "x": 654.0,
+        "y": 736.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "rocket-punch",
+    "name": "Rocket Punch",
+    "generation": 4,
+    "debutYear": 2019,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 6,
+    "nationality": 75.0,
+    "status": false,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283950",
+        "figmaName": "Rocket_Punch",
+        "asset": "/charms/Rocket_Punch.svg",
+        "x": 702.0,
+        "y": 743.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "cravity",
+    "name": "CRAVITY",
+    "generation": 4,
+    "debutYear": 2020,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 9,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283954",
+        "figmaName": "CRAVITY",
+        "asset": "/charms/CRAVITY.svg",
+        "x": 750.0,
+        "y": 750.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "secret-number",
+    "name": "Secret Number",
+    "generation": 4,
+    "debutYear": 2020,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283958",
+        "figmaName": "SecretNumber",
+        "asset": "/charms/Secret_Number.svg",
+        "x": 798.0,
+        "y": 756.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "niziu",
+    "name": "NiziU",
+    "generation": 4,
+    "debutYear": 2020,
+    "formation": "Global_Project",
+    "language": "JP",
+    "memberCount": 9,
+    "nationality": 0.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283962",
+        "figmaName": "Niziu",
+        "asset": "/charms/Niziu.svg",
+        "x": 846.0,
+        "y": 760.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "treasure",
+    "name": "Treasure",
+    "generation": 4,
+    "debutYear": 2020,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 12,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283966",
+        "figmaName": "Treasure",
+        "asset": "/charms/Treasure.svg",
+        "x": 894.0,
+        "y": 763.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "black-swan",
+    "name": "Black Swan",
+    "generation": 4,
+    "debutYear": 2020,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 4,
+    "nationality": 0.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283972",
+        "figmaName": "BLACKSWAN",
+        "asset": "/charms/BLACKSWAN.svg",
+        "x": 942.0,
+        "y": 764.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "p1harmony",
+    "name": "P1Harmony",
+    "generation": 4,
+    "debutYear": 2020,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 6,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283978",
+        "figmaName": "P1Harmony",
+        "asset": "/charms/P1Harmony.svg",
+        "x": 990.0,
+        "y": 763.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "stayc",
+    "name": "STAYC",
+    "generation": 4,
+    "debutYear": 2020,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 6,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283984",
+        "figmaName": "STAYC",
+        "asset": "/charms/STAYC.svg",
+        "x": 1038.0,
+        "y": 761.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "aespa",
+    "name": "aespa",
+    "generation": 4,
+    "debutYear": 2020,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 4,
+    "nationality": 50.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283944",
+        "figmaName": "aespa",
+        "asset": "/charms/aespa.svg",
+        "x": 1086.0,
+        "y": 757.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "enhypen",
+    "name": "ENHYPEN",
+    "generation": 4,
+    "debutYear": 2020,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283948",
+        "figmaName": "ENHYPEN",
+        "asset": "/charms/ENHYPEN.svg",
+        "x": 1134.0,
+        "y": 752.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "tribe",
+    "name": "TRI.BE",
+    "generation": 4,
+    "debutYear": 2021,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": false,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283952",
+        "figmaName": "TRI_BE",
+        "asset": "/charms/TRI_BE.svg",
+        "x": 1182.0,
+        "y": 746.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "purple-kiss",
+    "name": "PURPLE KISS",
+    "generation": 4,
+    "debutYear": 2021,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283956",
+        "figmaName": "Purple_Kiss",
+        "asset": "/charms/Purple_Kiss.svg",
+        "x": 1230.0,
+        "y": 739.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "mirae",
+    "name": "MIRAE",
+    "generation": 4,
+    "debutYear": 2021,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": false,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283960",
+        "figmaName": "MIRAE",
+        "asset": "/charms/MIRAE.svg",
+        "x": 1278.0,
+        "y": 730.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "billlie",
+    "name": "Billlie",
+    "generation": 4,
+    "debutYear": 2021,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283964",
+        "figmaName": "Billie",
+        "asset": "/charms/Billie.svg",
+        "x": 1326.0,
+        "y": 722.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "ive",
+    "name": "IVE",
+    "generation": 4,
+    "debutYear": 2021,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 6,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283968",
+        "figmaName": "IVE",
+        "asset": "/charms/IVE.svg",
+        "x": 1374.0,
+        "y": 713.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "kep1er",
+    "name": "Kep1er",
+    "generation": 4,
+    "debutYear": 2022,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 9,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283974",
+        "figmaName": "Kep1er",
+        "asset": "/charms/Kep1er.svg",
+        "x": 1422.0,
+        "y": 704.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "nmixx",
+    "name": "NMIXX",
+    "generation": 4,
+    "debutYear": 2022,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283980",
+        "figmaName": "NMIXX",
+        "asset": "/charms/NMIXX.svg",
+        "x": 1470.0,
+        "y": 693.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "tempest",
+    "name": "TEMPEST",
+    "generation": 4,
+    "debutYear": 2022,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283986",
+        "figmaName": "TEMPEST",
+        "asset": "/charms/TEMPEST.svg",
+        "x": 1518.0,
+        "y": 682.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "le-sserafim",
+    "name": "LE SSERAFIM",
+    "generation": 4,
+    "debutYear": 2022,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283970",
+        "figmaName": "LE_SSERAFIM",
+        "asset": "/charms/LE_SSERAFIM.svg",
+        "x": 1566.0,
+        "y": 671.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "newjeans",
+    "name": "NewJeans",
+    "generation": 4,
+    "debutYear": 2022,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283976",
+        "figmaName": "NewJeans",
+        "asset": "/charms/NewJeans.svg",
+        "x": 1614.0,
+        "y": 660.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ],
+    "charm": {
+      "color": "#f259a3"
+    }
+  },
+  {
+    "id": "and-team",
+    "name": "&TEAM",
+    "generation": 4,
+    "debutYear": 2022,
+    "formation": "Global_Project",
+    "language": "JP",
+    "memberCount": 9,
+    "nationality": 25.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283982",
+        "figmaName": "&TEAM",
+        "asset": "/charms/&TEAM.svg",
+        "x": 1662.0,
+        "y": 648.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "xikers",
+    "name": "xikers",
+    "generation": 5,
+    "debutYear": 2023,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 10,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284012",
+        "figmaName": "xikers",
+        "asset": "/charms/xikers.svg",
+        "x": 367.0,
+        "y": 892.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "boynextdoor",
+    "name": "BOYNEXTDOOR",
+    "generation": 5,
+    "debutYear": 2023,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 6,
+    "nationality": 100.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284010",
+        "figmaName": "BOYNEXTDOOR",
+        "asset": "/charms/BOYNEXTDOOR.svg",
+        "x": 408.0,
+        "y": 901.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "kiss-of-life",
+    "name": "Kiss Of Life",
+    "generation": 5,
+    "debutYear": 2023,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 4,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284008",
+        "figmaName": "Kiss_of_Life",
+        "asset": "/charms/Kiss_of_Life.svg",
+        "x": 447.0,
+        "y": 909.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "zerobaseone",
+    "name": "ZEROBASEONE",
+    "generation": 5,
+    "debutYear": 2023,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 9,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284006",
+        "figmaName": "ZEROBASEONE",
+        "asset": "/charms/ZEROBASEONE.svg",
+        "x": 486.0,
+        "y": 917.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "riize",
+    "name": "RIIZE",
+    "generation": 5,
+    "debutYear": 2023,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284004",
+        "figmaName": "RIIZE",
+        "asset": "/charms/RIIZE.svg",
+        "x": 525.0,
+        "y": 925.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "evnne",
+    "name": "EVNNE",
+    "generation": 5,
+    "debutYear": 2023,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284002",
+        "figmaName": "EVNNE",
+        "asset": "/charms/EVNNE.svg",
+        "x": 564.0,
+        "y": 932.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "pow",
+    "name": "POW",
+    "generation": 5,
+    "debutYear": 2023,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284000",
+        "figmaName": "POVV",
+        "asset": "/charms/POVV.svg",
+        "x": 603.0,
+        "y": 939.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "ampers-one",
+    "name": "AMPERS&ONE",
+    "generation": 5,
+    "debutYear": 2023,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283998",
+        "figmaName": "AMPERS&ONE",
+        "asset": "/charms/AMPERS&ONE.svg",
+        "x": 642.0,
+        "y": 946.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "babymonster",
+    "name": "BABYMONSTER",
+    "generation": 5,
+    "debutYear": 2023,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 25.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283996",
+        "figmaName": "BABYMONSTER",
+        "asset": "/charms/BABYMONSTER.svg",
+        "x": 681.0,
+        "y": 952.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "one-pact",
+    "name": "ONE PACT",
+    "generation": 5,
+    "debutYear": 2023,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283994",
+        "figmaName": "ONE_PACT",
+        "asset": "/charms/ONE_PACT.svg",
+        "x": 720.0,
+        "y": 958.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "allhours",
+    "name": "ALL(H)OURS",
+    "generation": 5,
+    "debutYear": 2024,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283992",
+        "figmaName": "ALL(H)OURS",
+        "asset": "/charms/ALL(H)OURS.svg",
+        "x": 759.0,
+        "y": 963.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "dxmon",
+    "name": "DXMON",
+    "generation": 5,
+    "debutYear": 2024,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 6,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283990",
+        "figmaName": "DXMON",
+        "asset": "/charms/DXMON.svg",
+        "x": 798.0,
+        "y": 968.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "tws",
+    "name": "TWS",
+    "generation": 5,
+    "debutYear": 2024,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 6,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283988",
+        "figmaName": "TWS",
+        "asset": "/charms/TWS.svg",
+        "x": 837.0,
+        "y": 971.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "vcha",
+    "name": "VCHA",
+    "generation": 5,
+    "debutYear": 2024,
+    "formation": "Global_Project",
+    "language": "EN",
+    "memberCount": 6,
+    "nationality": 25.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284016",
+        "figmaName": "VCHA",
+        "asset": "/charms/VCHA.svg",
+        "x": 875.0,
+        "y": 974.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "rescene",
+    "name": "RESCENE",
+    "generation": 5,
+    "debutYear": 2024,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284020",
+        "figmaName": "RESCENE",
+        "asset": "/charms/RESCENE.svg",
+        "x": 914.0,
+        "y": 976.0,
+        "width": 38.0,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "unis",
+    "name": "UNIS",
+    "generation": 5,
+    "debutYear": 2024,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 8,
+    "nationality": 25.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284024",
+        "figmaName": "UNIS",
+        "asset": "/charms/UNIS.svg",
+        "x": 953.0,
+        "y": 976.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "illit",
+    "name": "ILLIT",
+    "generation": 5,
+    "debutYear": 2024,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284028",
+        "figmaName": "ILLIT",
+        "asset": "/charms/ILLIT.svg",
+        "x": 992.0,
+        "y": 976.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "nexz",
+    "name": "NEXZ",
+    "generation": 5,
+    "debutYear": 2024,
+    "formation": "Global_Project",
+    "language": "JP",
+    "memberCount": 7,
+    "nationality": 25.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284032",
+        "figmaName": "NEXZ",
+        "asset": "/charms/NEXZ.svg",
+        "x": 1031.0,
+        "y": 974.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "katseye",
+    "name": "KATSEYE",
+    "generation": 5,
+    "debutYear": 2024,
+    "formation": "Global_Project",
+    "language": "EN",
+    "memberCount": 6,
+    "nationality": 25.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284042",
+        "figmaName": "KATSEYE",
+        "asset": "/charms/KATSEYE.svg",
+        "x": 1109.0,
+        "y": 967.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "artms",
+    "name": "ARTMS",
+    "generation": 5,
+    "debutYear": 2024,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 100.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284036",
+        "figmaName": "ARTMS",
+        "asset": "/charms/ARTMS.svg",
+        "x": 1070.0,
+        "y": 971.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "badvillain",
+    "name": "BADVILLAIN",
+    "generation": 5,
+    "debutYear": 2024,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284048",
+        "figmaName": "BADVILLAN",
+        "asset": "/charms/BADVILLAN.svg",
+        "x": 1148.0,
+        "y": 962.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "madein",
+    "name": "MADEIN",
+    "generation": 5,
+    "debutYear": 2024,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 25.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284052",
+        "figmaName": "MADEIN",
+        "asset": "/charms/MADEIN.svg",
+        "x": 1187.0,
+        "y": 957.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "meovv",
+    "name": "MEOVV",
+    "generation": 5,
+    "debutYear": 2024,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284014",
+        "figmaName": "MEOVV",
+        "asset": "/charms/MEOVV.svg",
+        "x": 1226.0,
+        "y": 951.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "say-my-name",
+    "name": "Say My Name",
+    "generation": 5,
+    "debutYear": 2024,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 8,
+    "nationality": 50.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284018",
+        "figmaName": "Say_My_Name",
+        "asset": "/charms/Say_My_Name.svg",
+        "x": 1265.0,
+        "y": 945.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "izna",
+    "name": "izna",
+    "generation": 5,
+    "debutYear": 2024,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284022",
+        "figmaName": "izna",
+        "asset": "/charms/izna.svg",
+        "x": 1304.0,
+        "y": 938.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "kickflip",
+    "name": "KickFlip",
+    "generation": 5,
+    "debutYear": 2025,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284026",
+        "figmaName": "KickFlip",
+        "asset": "/charms/KickFlip.svg",
+        "x": 1343.0,
+        "y": 931.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "dearalice",
+    "name": "dearALICE",
+    "generation": 5,
+    "debutYear": 2025,
+    "formation": "Global_Project",
+    "language": "EN",
+    "memberCount": 5,
+    "nationality": 0.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284030",
+        "figmaName": "dearALICE",
+        "asset": "/charms/dearALICE.svg",
+        "x": 1382.0,
+        "y": 923.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "nouera",
+    "name": "NouerA",
+    "generation": 5,
+    "debutYear": 2025,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284034",
+        "figmaName": "NouerA",
+        "asset": "/charms/NouerA.svg",
+        "x": 1421.0,
+        "y": 915.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "close-your-eyes",
+    "name": "CLOSE YOUR EYES",
+    "generation": 5,
+    "debutYear": 2025,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284038",
+        "figmaName": "CLOSE_YOUR_EYES",
+        "asset": "/charms/CLOSE_YOUR_EYES.svg",
+        "x": 1460.0,
+        "y": 907.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "lngshot",
+    "name": "LNGSHOT",
+    "generation": 5,
+    "debutYear": 2026,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284044",
+        "figmaName": "LNGSHOT",
+        "asset": "/charms/LNGSHOT.svg",
+        "x": 1499.0,
+        "y": 898.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "unchild",
+    "name": "Unchild",
+    "generation": 5,
+    "debutYear": 2026,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284050",
+        "figmaName": "UNCHILD",
+        "asset": "/charms/UNCHILD.svg",
+        "x": 1538.0,
+        "y": 890.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "naze",
+    "name": "NAZE",
+    "generation": 5,
+    "debutYear": 2026,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284054",
+        "figmaName": "NAZE",
+        "asset": "/charms/NAZE.svg",
+        "x": 1577.0,
+        "y": 881.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "and2ble",
+    "name": "AND2BLE",
+    "generation": 5,
+    "debutYear": 2026,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 75.0,
+    "status": true,
+    "top10": false,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284040",
+        "figmaName": "AND2BLE",
+        "asset": "/charms/AND2BLE.svg",
+        "x": 1616.0,
+        "y": 871.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "2pm",
+    "name": "2PM",
+    "generation": 2,
+    "debutYear": 2008,
+    "formation": "Survival_Show",
+    "language": "KR",
+    "memberCount": 6,
+    "nationality": 75.0,
+    "status": true,
+    "top10": true,
+    "type": "Boy_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283874",
+        "figmaName": "2PM",
+        "asset": "/charms/2PM.svg",
+        "x": 943.0,
+        "y": 343.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "gi-dle",
+    "name": "(G)I-DLE",
+    "generation": 4,
+    "debutYear": 2018,
+    "formation": "Regular",
+    "language": "KR",
+    "memberCount": 5,
+    "nationality": 25.0,
+    "status": true,
+    "top10": true,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:283940",
+        "figmaName": "gi_DLE",
+        "asset": "/charms/i_DLE.svg",
+        "x": 367.0,
+        "y": 680.0,
+        "width": 38.0,
+        "height": 160.0
+      }
+    ]
+  },
+  {
+    "id": "h-pe-princess",
+    "name": "H/PE Princess",
+    "generation": 5,
+    "debutYear": 2026,
+    "formation": "Global_Project",
+    "language": "KR",
+    "memberCount": 7,
+    "nationality": 25.0,
+    "status": true,
+    "top10": false,
+    "type": "Girl_Group",
+    "positions": [
+      {
+        "figmaNodeId": "1054:284046",
+        "figmaName": "H_PE Princess",
+        "asset": "/charms/H_PE Princess.svg",
+        "x": 1655.0,
+        "y": 862.0,
+        "width": 38.31,
+        "height": 160.0
+      }
+    ]
+  }
+]

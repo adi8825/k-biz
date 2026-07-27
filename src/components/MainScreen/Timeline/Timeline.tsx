@@ -53,9 +53,11 @@ export default function Timeline({
   onClearSelection?: () => void;
 }) {
   const isTop10 = viewMode === "top10";
-  // Top 10 is a view of the generation timeline, so it takes precedence over
-  // the sort selection while leaving that selection untouched.
-  const rows = isTop10 ? getTop10Rows(groups) : getTimelineRows(sortMode, groups);
+  /* Top 10 keeps the generation rows rather than adopting the sort's own row
+   * buckets, but the sort still applies *within* those rows — previously
+   * `sortMode` was simply not passed here, so the Sort controls updated their
+   * state and the Timeline discarded it. */
+  const rows = isTop10 ? getTop10Rows(groups, sortMode) : getTimelineRows(sortMode, groups);
   // Groups hidden by Top 10 keep a position so they can fade out where they
   // already are, rather than jumping before disappearing.
   const fallbackRows = isTop10 ? getTimelineRows("generation", groups) : rows;

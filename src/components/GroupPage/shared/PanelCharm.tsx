@@ -20,12 +20,26 @@ type PanelCharmProps = {
   reducedMotion?: boolean;
   /** Charm-part folder for the group being shown. */
   partsBase?: string;
+  /**
+   * Folder of five pre-rendered charm *states* — the whole charm drawn once per
+   * page, with that page's part lit and the rest already dimmed.
+   *
+   * An alternative to `partsBase` for a group authored that way: the dimming
+   * is baked into the artwork rather than applied here. Files are named for the
+   * region their page belongs to, so General is `tag` — the tag's page is page
+   * 0, which lights every part.
+   */
+  charmStatesBase?: string;
   className?: string;
   style?: React.CSSProperties;
 };
 
 /** Part fade. Long enough to read as a dissolve rather than a switch. */
 const PART_FADE_MS = 350;
+
+/** The five pre-rendered states, named for the region whose page they belong
+ * to. `tag` is the General state, where every part is lit. */
+const CHARM_STATES: CharmRegion[] = ["bar", "language", "flower", "pearl", "tag"];
 
 /**
  * The large charm inside the Group Detail Panel — and the panel's page
@@ -50,6 +64,7 @@ export default function PanelCharm({
   onInteract,
   reducedMotion = false,
   partsBase,
+  charmStatesBase,
   className,
   style,
 }: PanelCharmProps) {
@@ -79,26 +94,44 @@ export default function PanelCharm({
         ...style,
       }}
     >
-      {/* Strips of the authored charm, stacked back into place. Each is 1px
-       * proud of the box horizontally, the same bleed every panel asset
-       * carries, and sizes are stated so a 2x export cannot double. */}
-      {charmParts(partsBase).map((part) => (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          key={part.region}
-          src={part.src}
-          alt=""
-          className="pointer-events-none absolute max-w-none"
-          style={{
-            left: -1,
-            top: part.top,
-            width: 132.254,
-            height: part.height,
-            opacity: partOpacity(part.region, activeRegion),
-            transition: reducedMotion ? "none" : `opacity ${PART_FADE_MS}ms ease-in-out`,
-          }}
-        />
-      ))}
+      {/* All five states mounted at once and crossfaded, so a page change is a
+       * dissolve between two whole charms rather than a swap — and this stable
+       * instance is never remounted, exactly as the sliced parts are not. */}
+      {charmStatesBase
+        ? CHARM_STATES.map((state) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={state}
+              src={`${charmStatesBase}/${state}.png`}
+              alt=""
+              className="pointer-events-none absolute max-w-none"
+              style={{
+                left: -1,
+                top: -1,
+                width: 132.254,
+                height: 546,
+                opacity: state === (activeRegion ?? "tag") ? 1 : 0,
+                transition: reducedMotion ? "none" : `opacity ${PART_FADE_MS}ms ease-in-out`,
+              }}
+            />
+          ))
+        : charmParts(partsBase).map((part) => (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            key={part.region}
+            src={part.src}
+            alt=""
+            className="pointer-events-none absolute max-w-none"
+            style={{
+              left: -1,
+              top: part.top,
+              width: 132.254,
+              height: part.height,
+              opacity: partOpacity(part.region, activeRegion),
+              transition: reducedMotion ? "none" : `opacity ${PART_FADE_MS}ms ease-in-out`,
+            }}
+          />
+        ))}
     </button>
   );
 }

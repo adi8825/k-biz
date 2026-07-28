@@ -1,4 +1,4 @@
-import type { GroupGeneralContent } from "@/components/GroupPage/shared/types";
+import type { GroupPanelPage } from "@/components/GroupPage/shared/types";
 import { content as bts } from "./bts/general";
 import { content as btsNationality } from "./bts/nationality";
 import { content as btsLanguage } from "./bts/language";
@@ -14,6 +14,7 @@ import { content as nctNationality } from "./nct/nationality";
 import { content as nctLanguage } from "./nct/language";
 import { content as nctFormation } from "./nct/formation";
 import { content as nctStatus } from "./nct/status";
+import { pages as katseyePages } from "./katseye/pages";
 
 /**
  * Authored panel pages, keyed by the group id in `groups.json`.
@@ -37,12 +38,16 @@ import { content as nctStatus } from "./nct/status";
  * "most of their songs are in Korean", the flower is "formed by a Company",
  * the pearl is "they are Active" — and the tag, the group's name, is page 0.
  */
-export const GROUP_CONTENT: Record<string, GroupGeneralContent[]> = {
+export const GROUP_CONTENT: Record<string, GroupPanelPage[]> = {
   bts: [bts, btsNationality, btsLanguage, btsFormation, btsStatus],
   newjeans: [newjeans, njNationality, njLanguage, njFormation, njStatus],
   nct: [nct, nctNationality, nctLanguage, nctFormation, nctStatus],
+  /* KATSEYE's five pages arrived from Figma as finished SVGs rather than as
+   * transcribed elements, so its entry is a list of artwork rather than a list
+   * of compositions. Same registry, same page order, same panel. */
+  katseye: katseyePages,
 };
 
-export function getGroupPages(id: string): GroupGeneralContent[] | undefined {
+export function getGroupPages(id: string): GroupPanelPage[] | undefined {
   return GROUP_CONTENT[id];
 }

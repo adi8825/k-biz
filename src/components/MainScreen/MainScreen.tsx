@@ -23,6 +23,7 @@ import AboutScreen from "./About/AboutScreen";
 import { getGroupPages } from "@/content/groups";
 import { clampPage, REGION_PAGE, type CharmRegion } from "@/lib/timeline/charmRegions";
 import PanelCharm from "@/components/GroupPage/shared/PanelCharm";
+import { isSvgPage } from "@/components/GroupPage/shared/types";
 import type { GenId } from "./EditorialPanel/genPanels";
 import type { SortMode } from "@/lib/timeline/sortModes";
 import {
@@ -356,6 +357,13 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
               onInteract={stopPreview}
               reducedMotion={reducedMotion}
               partsBase={selectedPages[0]?.charmPartsBase}
+              /* A group authored as pre-rendered charm states supplies those
+               * instead of sliced parts; the dimming is already in the art. */
+              charmStatesBase={
+                selectedPages[0] !== undefined && isSvgPage(selectedPages[0])
+                  ? selectedPages[0].charmStatesBase
+                  : undefined
+              }
             />
           </div>
         )}

@@ -96,3 +96,54 @@ export type GroupGeneralContent = {
   heroPhoto: string;
   elements: EditorialElement[];
 };
+
+/**
+ * A page delivered as one complete SVG rather than as positioned elements.
+ *
+ * Some groups are authored in Figma as a finished page and exported whole. The
+ * artwork already contains the header, the composition and the type (outlined,
+ * so no font can substitute), so there is nothing to transcribe and nothing for
+ * `EditorialCanvas` to lay out — the file *is* the page. Only the charm is left
+ * out of it, exactly as it is for a transcribed page, and drawn on top.
+ *
+ * This is a second content shape, not a second panel system: it renders in the
+ * same 323x1136 slot, through the same `GroupDetailPanel`, inside the same page
+ * layers and crossfade, and is navigated by the same `PanelCharm`.
+ */
+export type GroupSvgPage = {
+  name: string;
+  /** The exported page artwork. */
+  svg: string;
+  /** The file's own pixel size. Drawn at exactly this and never scaled, so the
+   * authored scale, crop and aspect ratio survive untouched. */
+  width: number;
+  height: number;
+  /**
+   * Where the artwork's own ink begins inside that file.
+   *
+   * Figma exports these at the union of the composition's bounds, so each file
+   * carries a different amount of empty padding — the ink is not at 0,0 and the
+   * canvas is not the panel. Offsetting by this lands the ink on the panel with
+   * the same 1px bleed every other asset in the project uses.
+   */
+  inkX: number;
+  inkY: number;
+  /** Folder holding this group's five sliced charm parts, if it has them. */
+  charmPartsBase?: string;
+  /**
+   * Folder of five pre-rendered charm states, for a group authored that way
+   * instead of as sliced parts.
+   *
+   * These pages leave the charm slot empty — the artwork is authored to have
+   * the charm composited over it, exactly as every other group's panel is — so
+   * the charm still has to be drawn.
+   */
+  charmStatesBase?: string;
+};
+
+/** Either authoring route. The panel accepts both. */
+export type GroupPanelPage = GroupGeneralContent | GroupSvgPage;
+
+export function isSvgPage(page: GroupPanelPage): page is GroupSvgPage {
+  return "svg" in page;
+}

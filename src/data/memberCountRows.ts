@@ -11,7 +11,12 @@ export const memberCountRows: (TimelineRowConfig & { min: number; max: number | 
       number: "3/4",
       english: "Members",
       korean: "회원들",
-      box: { x: 129, y: 64, width: 195, height: 64 },
+      /* Figma places this one label at x=129 while its four siblings on the same
+     * screen sit at x=170 — and the sidebar is an opaque 170px panel drawn
+     * above the Timeline, so the "3" was hidden behind it. 170 is not invented:
+     * it is the rail the other four Member Count rows already use, and the
+     * sidebar's own right edge. */
+    box: { x: 170, y: 64, width: 195, height: 64 },
     },
     curve: { x: 245, y: 16, width: 1446, height: 119 },
   },

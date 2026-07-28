@@ -1,6 +1,14 @@
 import { getGroupById } from "@/data/groups";
 import type { GroupGeneralContent } from "@/components/GroupPage/shared/types";
 
+/* A few `label-sm` English boxes carry a width a little larger than the one
+ * Figma reports. Figma authors them as a single 20px line, but the browser
+ * sets Satoshi 20px marginally wider than Figma measures it, so at Figma's own
+ * width the label wrapped to a second line, doubled to 40px tall and ran into
+ * its Korean twin 24px below. Each is Figma's width rounded up to the natural
+ * single-line width plus 2px of slack. The text is left-aligned, so the extra
+ * width is empty space to the right and no glyph moves. */
+
 const ASSET = "/groups/newjeans/formation";
 
 const group = getGroupById("newjeans");
@@ -67,7 +75,7 @@ export const content: GroupGeneralContent = {
       text: "Main Company",
       x: 172,
       y: 467,
-      width: 130,
+      width: 136,
       height: 20,
     },
     {
@@ -131,7 +139,7 @@ export const content: GroupGeneralContent = {
       text: "Geffen Records",
       x: 89,
       y: 864,
-      width: 132,
+      width: 138,
       height: 20,
     },
     {
@@ -155,7 +163,7 @@ export const content: GroupGeneralContent = {
       text: "HYBE JAPAN",
       x: 176,
       y: 946,
-      width: 114,
+      width: 119,
       height: 20,
     },
     {

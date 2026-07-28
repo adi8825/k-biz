@@ -9,6 +9,11 @@ import { content as njNationality } from "./newjeans/nationality";
 import { content as njLanguage } from "./newjeans/language";
 import { content as njFormation } from "./newjeans/formation";
 import { content as njStatus } from "./newjeans/status";
+import { content as nct } from "./nct/general";
+import { content as nctNationality } from "./nct/nationality";
+import { content as nctLanguage } from "./nct/language";
+import { content as nctFormation } from "./nct/formation";
+import { content as nctStatus } from "./nct/status";
 
 /**
  * Authored panel pages, keyed by the group id in `groups.json`.
@@ -35,6 +40,7 @@ import { content as njStatus } from "./newjeans/status";
 export const GROUP_CONTENT: Record<string, GroupGeneralContent[]> = {
   bts: [bts, btsNationality, btsLanguage, btsFormation, btsStatus],
   newjeans: [newjeans, njNationality, njLanguage, njFormation, njStatus],
+  nct: [nct, nctNationality, nctLanguage, nctFormation, nctStatus],
 };
 
 export function getGroupPages(id: string): GroupGeneralContent[] | undefined {

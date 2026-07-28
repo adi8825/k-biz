@@ -1,0 +1,462 @@
+[
+ {
+  "page": "general",
+  "node": "1180:112925",
+  "file": "general/p01.png",
+  "width": 157,
+  "height": 122,
+  "figma_box": "155x120",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "general",
+  "node": "1180:112939",
+  "file": "general/p02.png",
+  "width": 156,
+  "height": 66,
+  "figma_box": "154x64",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "general",
+  "node": "1180:112940",
+  "file": "general/p03.png",
+  "width": 158,
+  "height": 146,
+  "figma_box": "155.5x144",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "general",
+  "node": "1180:112941",
+  "file": "general/p04.png",
+  "width": 68,
+  "height": 66,
+  "figma_box": "66x64",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "general",
+  "node": "1180:112942",
+  "file": "general/p05.png",
+  "width": 68,
+  "height": 66,
+  "figma_box": "66x64",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "general",
+  "node": "1180:112943",
+  "file": "general/p06.png",
+  "width": 243,
+  "height": 146,
+  "figma_box": "241x144",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "general",
+  "node": "1180:112944",
+  "file": "general/p07.png",
+  "width": 67,
+  "height": 146,
+  "figma_box": "65x144",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "general",
+  "node": "1180:112945",
+  "file": "general/p08.png",
+  "width": 156,
+  "height": 122,
+  "figma_box": "154x120",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "nationality",
+  "node": "1180:112987",
+  "file": "nationality/p01.png",
+  "width": 157,
+  "height": 122,
+  "figma_box": "155x120",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "nationality",
+  "node": "1180:113056",
+  "file": "nationality/p02.png",
+  "width": 156,
+  "height": 66,
+  "figma_box": "154x64",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "nationality",
+  "node": "1180:113057",
+  "file": "nationality/p03.png",
+  "width": 67,
+  "height": 66,
+  "figma_box": "65x64",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "nationality",
+  "node": "1180:113058",
+  "file": "nationality/p04.png",
+  "width": 67,
+  "height": 66,
+  "figma_box": "65x64",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "nationality",
+  "node": "1180:113059",
+  "file": "nationality/p05.png",
+  "width": 74,
+  "height": 146,
+  "figma_box": "72x144",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "nationality",
+  "node": "1180:113060",
+  "file": "nationality/p06.png",
+  "width": 74,
+  "height": 122,
+  "figma_box": "72x120",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "nationality",
+  "node": "1180:113061",
+  "file": "nationality/p07.png",
+  "width": 69,
+  "height": 226,
+  "figma_box": "67x224",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "language",
+  "node": "1180:113152",
+  "file": "language/p01.png",
+  "width": 157,
+  "height": 122,
+  "figma_box": "155x120",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "language",
+  "node": "1180:113188",
+  "file": "language/p02.png",
+  "width": 156,
+  "height": 66,
+  "figma_box": "154x64",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "language",
+  "node": "1180:113189",
+  "file": "language/p03.png",
+  "width": 156,
+  "height": 66,
+  "figma_box": "154x64",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "language",
+  "node": "1180:113206",
+  "file": "language/p04.png",
+  "width": 156,
+  "height": 226,
+  "figma_box": "154x224",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "language",
+  "node": "1180:113207",
+  "file": "language/p05.png",
+  "width": 244,
+  "height": 202,
+  "figma_box": "242x200",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "language",
+  "node": "1180:113208",
+  "file": "language/p06.png",
+  "width": 156,
+  "height": 226,
+  "figma_box": "154x223.5",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "language",
+  "node": "1180:113209",
+  "file": "language/p07.png",
+  "width": 155,
+  "height": 146,
+  "figma_box": "153x144",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "language",
+  "node": "1180:113210",
+  "file": "language/p08.png",
+  "width": 67,
+  "height": 147,
+  "figma_box": "65x145",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "language",
+  "node": "1180:113211",
+  "file": "language/p09.png",
+  "width": 68,
+  "height": 66,
+  "figma_box": "66x64",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "formation",
+  "node": "1180:113266",
+  "file": "formation/p01.png",
+  "width": 157,
+  "height": 122,
+  "figma_box": "155x120",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "formation",
+  "node": "1180:113335",
+  "file": "formation/p02.png",
+  "width": 156,
+  "height": 66,
+  "figma_box": "154x64",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "formation",
+  "node": "1180:113336",
+  "file": "formation/p03.png",
+  "width": 321,
+  "height": 42,
+  "figma_box": "319x40",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "formation",
+  "node": "1180:113337",
+  "file": "formation/p04.png",
+  "width": 155,
+  "height": 146,
+  "figma_box": "153x144",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "formation",
+  "node": "1180:113338",
+  "file": "formation/p05.png",
+  "width": 155,
+  "height": 146,
+  "figma_box": "153x144",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "formation",
+  "node": "1180:113339",
+  "file": "formation/p06.png",
+  "width": 156,
+  "height": 146,
+  "figma_box": "153.5x144",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "formation",
+  "node": "1180:113340",
+  "file": "formation/p07.png",
+  "width": 156,
+  "height": 226,
+  "figma_box": "154x223.5",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "formation",
+  "node": "1180:113341",
+  "file": "formation/p08.png",
+  "width": 67,
+  "height": 66,
+  "figma_box": "65x64",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "formation",
+  "node": "1180:113342",
+  "file": "formation/p09.png",
+  "width": 67,
+  "height": 66,
+  "figma_box": "65x64",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "status",
+  "node": "1180:113411",
+  "file": "status/p01.png",
+  "width": 157,
+  "height": 122,
+  "figma_box": "155x120",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "status",
+  "node": "1180:113440",
+  "file": "status/p02.png",
+  "width": 156,
+  "height": 66,
+  "figma_box": "154x64",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "status",
+  "node": "1180:113441",
+  "file": "status/p03.png",
+  "width": 156,
+  "height": 66,
+  "figma_box": "154x64",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "status",
+  "node": "1180:113442",
+  "file": "status/p04.png",
+  "width": 156,
+  "height": 66,
+  "figma_box": "154x64",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "status",
+  "node": "1180:113443",
+  "file": "status/p05.png",
+  "width": 156,
+  "height": 147,
+  "figma_box": "154x145",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "status",
+  "node": "1180:113484",
+  "file": "status/p06.png",
+  "width": 244,
+  "height": 122,
+  "figma_box": "242x120",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "status",
+  "node": "1180:113485",
+  "file": "status/p07.png",
+  "width": 67,
+  "height": 126,
+  "figma_box": "65x124",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "status",
+  "node": "1180:113486",
+  "file": "status/p08.png",
+  "width": 68,
+  "height": 66,
+  "figma_box": "66x64",
+  "method": "get_screenshot(contentsOnly=true)",
+  "verified": "pass"
+ },
+ {
+  "page": "charm",
+  "node": "1180:112914 (sliced)",
+  "file": "charm/parts/bar.png",
+  "width": 131,
+  "height": 69,
+  "figma_box": "129.08x542.12 source",
+  "method": "get_screenshot + local slice",
+  "verified": "pass"
+ },
+ {
+  "page": "charm",
+  "node": "1180:112914 (sliced)",
+  "file": "charm/parts/language.png",
+  "width": 131,
+  "height": 38,
+  "figma_box": "129.08x542.12 source",
+  "method": "get_screenshot + local slice",
+  "verified": "pass"
+ },
+ {
+  "page": "charm",
+  "node": "1180:112914 (sliced)",
+  "file": "charm/parts/flower.png",
+  "width": 131,
+  "height": 114,
+  "figma_box": "129.08x542.12 source",
+  "method": "get_screenshot + local slice",
+  "verified": "pass"
+ },
+ {
+  "page": "charm",
+  "node": "1180:112914 (sliced)",
+  "file": "charm/parts/pearl.png",
+  "width": 131,
+  "height": 53,
+  "figma_box": "129.08x542.12 source",
+  "method": "get_screenshot + local slice",
+  "verified": "pass"
+ },
+ {
+  "page": "charm",
+  "node": "1180:112914 (sliced)",
+  "file": "charm/parts/tag.png",
+  "width": 131,
+  "height": 272,
+  "figma_box": "129.08x542.12 source",
+  "method": "get_screenshot + local slice",
+  "verified": "pass"
+ }
+]

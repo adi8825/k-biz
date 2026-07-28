@@ -16,6 +16,8 @@ import EditorialPanel from "./EditorialPanel/EditorialPanel";
 import GenPanel from "./EditorialPanel/GenPanel";
 import TypePanel from "./EditorialPanel/TypePanel";
 import { TYPE_PANEL_IDS, type TypeId } from "./EditorialPanel/typePanels";
+import GroupSizePanel from "./EditorialPanel/GroupSizePanel";
+import { GROUP_SIZE_PANEL_IDS, type SizeId } from "./EditorialPanel/groupSizePanels";
 import GroupDetailPanel from "@/components/GroupPage/GroupDetailPanel/GroupDetailPanel";
 import AboutScreen from "./About/AboutScreen";
 import { getGroupPages } from "@/content/groups";
@@ -71,6 +73,8 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
   /* The same transient contract, for the Type sort mode's rows. Kept separate
    * from `hoveredGeneration` so neither preview can leak into the other. */
   const [hoveredType, setHoveredType] = useState<TypeId | null>(null);
+  /* And again for the Members rows. */
+  const [hoveredSize, setHoveredSize] = useState<SizeId | null>(null);
   /* Persistent, and separate again: clicking a charm sets it, clicking the
    * same charm clears it, and nothing about sort, filters or view mode is
    * touched either way. */
@@ -196,14 +200,19 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
 
   const previewedGeneration = selectedGroupId === null ? hoveredGeneration : null;
   const previewedType = selectedGroupId === null ? hoveredType : null;
+  const previewedSize = selectedGroupId === null ? hoveredSize : null;
   const showEditorial =
-    selectedPages === undefined && previewedGeneration === null && previewedType === null;
+    selectedPages === undefined &&
+    previewedGeneration === null &&
+    previewedType === null &&
+    previewedSize === null;
 
   /* A Type panel only exists while the Type rows do. Changing sort or view mode
    * replaces the rows outright, so the pointer never leaves the old label and
    * no `false` ever arrives — the preview is dropped here instead. */
   useEffect(() => {
     setHoveredType(null);
+    setHoveredSize(null);
   }, [sortMode, viewMode]);
 
   /* Inside OpeningFlow the flow supplies its replay callback. On the direct
@@ -257,6 +266,8 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
             onHoverGeneration={setHoveredGeneration}
             hoveredType={hoveredType}
             onHoverType={setHoveredType}
+            hoveredSize={hoveredSize}
+            onHoverSize={setHoveredSize}
             selectedGroupId={selectedGroupId}
             selectedGroupPage={activePage}
             onToggleGroup={handleToggleGroup}
@@ -292,6 +303,16 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
               style={{ opacity: previewedType === id ? 1 : 0, transition: PANEL_FADE }}
             >
               <TypePanel type={id} />
+            </div>
+          ))}
+          {/* The Group Size family shares the same slot and the same fade. */}
+          {GROUP_SIZE_PANEL_IDS.map((id) => (
+            <div
+              key={id}
+              className="absolute inset-0"
+              style={{ opacity: previewedSize === id ? 1 : 0, transition: PANEL_FADE }}
+            >
+              <GroupSizePanel size={id} />
             </div>
           ))}
         </div>

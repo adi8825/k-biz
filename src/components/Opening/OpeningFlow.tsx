@@ -199,13 +199,31 @@ export default function OpeningFlow() {
    * unmounted and keeps its sort, filter and view-mode state while the Opening
    * plays over the top of it. Clearing `finished` remounts the Opening layers
    * and restores click progression for the replay.
+   *
+   * The replay goes through `commitStage` rather than setting the stage itself,
+   * which is what makes it survive the click that starts it. Clearing `finished`
+   * re-attaches the window click listener, and React attaches it while that same
+   * click is still on its way up to `window` — a listener added mid-dispatch
+   * still receives the event, because each node's listeners are read as the
+   * event reaches it. The listener then saw stage 0 and an unlocked flow and
+   * advanced straight to opening1, so History appeared to skip the attract
+   * screen. Committing takes the lock exactly as every other transition does, so
+   * the click that asked for the replay is swallowed by it, and the lock is
+   * released a cross-fade later by the effect below. Every pending timer —
+   * auto-advance, the `finished` latch, the lock release — is keyed on `stage`,
+   * so this same change runs their cleanups and none can survive into the replay.
    */
   const replayOpening = useCallback(() => {
-    locked.current = false;
-    stageRef.current = FIRST_STAGE;
     setFinished(false);
-    setStage(FIRST_STAGE);
-  }, []);
+    /* Already on the attract screen, so there is nothing to rewind. Guarded
+     * because committing a stage the flow is already on would take the lock
+     * without changing `stage`, and the effect that releases it is keyed on
+     * `stage` — the Opening would never accept a click again. Reachable by
+     * keyboard: `pointer-events: none` hides the Timeline from the pointer
+     * during a replay but leaves its History button focusable. */
+    if (stageRef.current === FIRST_STAGE) return;
+    commitStage(FIRST_STAGE);
+  }, [commitStage]);
 
   /** Used only by the temporary control below. Stepping back off the terminal
    * stage re-arms the Opening, which only the dev control can do. */

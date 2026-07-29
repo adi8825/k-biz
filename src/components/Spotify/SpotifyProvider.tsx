@@ -10,6 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import { ABOUT_SAFE_SHIFT } from "@/components/MainScreen/About/aboutContent";
+import { END_CONFIRM_MS, isStoppedAtEnd, type PlaybackData } from "./playbackEnd";
 
 /** Permanent playlist. No `si` parameter: that one is a share token and
  * expires. Adding, removing or reordering tracks inside this playlist needs
@@ -40,7 +41,7 @@ export const ABOUT_PLAYER_SLOT = { x: 1601 + ABOUT_SAFE_SHIFT, y: 40, width: 320
 const CONFIRM_TIMEOUT_MS = 6000;
 
 /* Minimal shape of the bits of Spotify's IFrame API this uses. */
-type PlaybackUpdate = { data: { isPaused: boolean; isBuffering: boolean; position: number } };
+type PlaybackUpdate = { data: PlaybackData };
 type EmbedController = {
   play: () => void;
   pause: () => void;
@@ -99,6 +100,13 @@ export default function SpotifyProvider({ children }: { children: ReactNode }) {
   /* True when the player was opened by the failure fallback rather than by
    * the reader, so a late confirmation can put it away again. */
   const autoRevealedRef = useRef(false);
+  /* True once sound has actually been heard. The loop only ever restarts music
+   * the reader already started, so it can never autoplay on load — which is
+   * both the browser's rule and the right behaviour for the room. */
+  const hasPlayedRef = useRef(false);
+  /* The pending end-of-playlist confirmation, cancelled the moment the embed
+   * shows any sign of carrying on by itself. */
+  const endTimerRef = useRef<number | null>(null);
 
   const [controllerReady, setControllerReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -134,7 +142,28 @@ export default function SpotifyProvider({ children }: { children: ReactNode }) {
           controller.addListener("playback_update", (event) => {
             const paused = event?.data?.isPaused ?? true;
             setIsPlaying(!paused);
+
+            /* Any fresh update means the embed is still doing something, so a
+             * confirmation left over from the previous one is stale. Clearing
+             * it first is what makes the gap between two tracks harmless: the
+             * next track's update arrives inside the window and cancels the
+             * restart that the previous track's ending had armed. */
+            if (endTimerRef.current !== null) {
+              window.clearTimeout(endTimerRef.current);
+              endTimerRef.current = null;
+            }
+            if (hasPlayedRef.current && isStoppedAtEnd(event?.data)) {
+              endTimerRef.current = window.setTimeout(() => {
+                endTimerRef.current = null;
+                /* Nothing has come in since, so the playlist really has run
+                 * out. `play()` restarts it from the top — the only repeat the
+                 * embed offers, since it has no loop of its own. */
+                controllerRef.current?.play();
+              }, END_CONFIRM_MS);
+            }
+
             if (!paused) {
+              hasPlayedRef.current = true;
               pendingRef.current = false;
               setPlaybackError(false);
               /* A cold embed can take several seconds to start, so the
@@ -161,6 +190,16 @@ export default function SpotifyProvider({ children }: { children: ReactNode }) {
       document.body.appendChild(script);
     }
   }, []);
+
+  /* The embed itself is deliberately never torn down, but a pending restart
+   * is not part of it — nothing should be able to reach for a controller that
+   * has gone away. */
+  useEffect(
+    () => () => {
+      if (endTimerRef.current !== null) window.clearTimeout(endTimerRef.current);
+    },
+    [],
+  );
 
   return (
     <SpotifyContext.Provider

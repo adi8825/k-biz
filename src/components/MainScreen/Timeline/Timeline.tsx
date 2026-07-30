@@ -16,6 +16,11 @@ import {
   inSizeBand,
   type SizeId,
 } from "@/components/MainScreen/EditorialPanel/groupSizePanels";
+import {
+  matchesNationality,
+  nationalityPanelForKey,
+  type NationalityId,
+} from "@/components/MainScreen/EditorialPanel/nationalityPanels";
 import { EMPTY_FILTER_STATE, type FilterState } from "@/lib/timeline/filterState";
 import type { ViewMode } from "@/lib/timeline/viewMode";
 import type { CharmRegion } from "@/lib/timeline/charmRegions";
@@ -43,6 +48,8 @@ export default function Timeline({
   onHoverType,
   hoveredSize = null,
   onHoverSize,
+  hoveredNationality = null,
+  onHoverNationality,
   selectedGroupId = null,
   selectedGroupPage = 0,
   onToggleGroup,
@@ -61,6 +68,9 @@ export default function Timeline({
   /** The Members-mode counterpart. Same transient contract again. */
   hoveredSize?: SizeId | null;
   onHoverSize?: (size: SizeId | null) => void;
+  /** The Nationality-mode counterpart. Same transient contract again. */
+  hoveredNationality?: NationalityId | null;
+  onHoverNationality?: (nationality: NationalityId | null) => void;
   onHoverGeneration?: (generation: number | null) => void;
   /** Type sort mode only. Same transient preview contract as the generation
    * rows: `null` on leave, never written into the Timeline's own state. */
@@ -86,19 +96,26 @@ export default function Timeline({
     generation: number | null;
     type: string | null;
     memberCount: number | null;
+    nationality: number | null;
   }) =>
     (hoveredGeneration === null || group.generation === hoveredGeneration) &&
     (hoveredTypeValue === null || group.type === hoveredTypeValue) &&
-    (hoveredSize === null || inSizeBand(group.memberCount ?? 0, hoveredSize));
+    (hoveredSize === null || inSizeBand(group.memberCount ?? 0, hoveredSize)) &&
+    (hoveredNationality === null || matchesNationality(group.nationality, hoveredNationality));
   /** Whether a row is the hovered one, for the curve and label treatment. */
   const rowIsHovered = (row: { config: { key: string; label: { variant?: string } } }) => {
     if (hoveredGeneration !== null) return generationOfRow(row) === hoveredGeneration;
     if (hoveredType !== null) return typePanelForValue(row.config.key) === hoveredType;
     if (hoveredSize !== null) return groupSizePanelForKey(row.config.key) === hoveredSize;
+    if (hoveredNationality !== null)
+      return nationalityPanelForKey(row.config.key) === hoveredNationality;
     return true;
   };
   const anyRowHovered =
-    hoveredGeneration !== null || hoveredType !== null || hoveredSize !== null;
+    hoveredGeneration !== null ||
+    hoveredType !== null ||
+    hoveredSize !== null ||
+    hoveredNationality !== null;
   /* Top 10 keeps the generation rows rather than adopting the sort's own row
    * buckets, but the sort still applies *within* those rows — previously
    * `sortMode` was simply not passed here, so the Sort controls updated their
@@ -182,6 +199,12 @@ export default function Timeline({
             !isTop10 && sortMode === "memberCount"
               ? groupSizePanelForKey(row.config.key)
               : null;
+          /* Nationality rows key on the same values the filters use. Top 10
+           * keeps generation rows, so it never reaches this branch either. */
+          const nationalityId =
+            !isTop10 && sortMode === "nationality"
+              ? nationalityPanelForKey(row.config.key)
+              : null;
           return (
             <RowLabel
               key={`label-${i}`}
@@ -194,7 +217,9 @@ export default function Timeline({
                     ? (entering) => onHoverType(entering ? typeId : null)
                     : sizeId !== null && onHoverSize
                       ? (entering) => onHoverSize(entering ? sizeId : null)
-                      : undefined
+                      : nationalityId !== null && onHoverNationality
+                        ? (entering) => onHoverNationality(entering ? nationalityId : null)
+                        : undefined
               }
             />
           );

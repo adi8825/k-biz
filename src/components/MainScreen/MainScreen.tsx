@@ -18,6 +18,11 @@ import TypePanel from "./EditorialPanel/TypePanel";
 import { TYPE_PANEL_IDS, type TypeId } from "./EditorialPanel/typePanels";
 import GroupSizePanel from "./EditorialPanel/GroupSizePanel";
 import { GROUP_SIZE_PANEL_IDS, type SizeId } from "./EditorialPanel/groupSizePanels";
+import NationalityPanel from "./EditorialPanel/NationalityPanel";
+import {
+  NATIONALITY_PANEL_IDS,
+  type NationalityId,
+} from "./EditorialPanel/nationalityPanels";
 import GroupDetailPanel from "@/components/GroupPage/GroupDetailPanel/GroupDetailPanel";
 import AboutScreen from "./About/AboutScreen";
 import { getGroupPages } from "@/content/groups";
@@ -76,6 +81,8 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
   const [hoveredType, setHoveredType] = useState<TypeId | null>(null);
   /* And again for the Members rows. */
   const [hoveredSize, setHoveredSize] = useState<SizeId | null>(null);
+  /* And again for the Nationality rows. */
+  const [hoveredNationality, setHoveredNationality] = useState<NationalityId | null>(null);
   /* Persistent, and separate again: clicking a charm sets it, clicking the
    * same charm clears it, and nothing about sort, filters or view mode is
    * touched either way. */
@@ -202,11 +209,13 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
   const previewedGeneration = selectedGroupId === null ? hoveredGeneration : null;
   const previewedType = selectedGroupId === null ? hoveredType : null;
   const previewedSize = selectedGroupId === null ? hoveredSize : null;
+  const previewedNationality = selectedGroupId === null ? hoveredNationality : null;
   const showEditorial =
     selectedPages === undefined &&
     previewedGeneration === null &&
     previewedType === null &&
-    previewedSize === null;
+    previewedSize === null &&
+    previewedNationality === null;
 
   /* A Type panel only exists while the Type rows do. Changing sort or view mode
    * replaces the rows outright, so the pointer never leaves the old label and
@@ -214,6 +223,7 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
   useEffect(() => {
     setHoveredType(null);
     setHoveredSize(null);
+    setHoveredNationality(null);
   }, [sortMode, viewMode]);
 
   /* Inside OpeningFlow the flow supplies its replay callback. On the direct
@@ -269,6 +279,8 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
             onHoverType={setHoveredType}
             hoveredSize={hoveredSize}
             onHoverSize={setHoveredSize}
+            hoveredNationality={hoveredNationality}
+            onHoverNationality={setHoveredNationality}
             selectedGroupId={selectedGroupId}
             selectedGroupPage={activePage}
             onToggleGroup={handleToggleGroup}
@@ -314,6 +326,19 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
               style={{ opacity: previewedSize === id ? 1 : 0, transition: PANEL_FADE }}
             >
               <GroupSizePanel size={id} />
+            </div>
+          ))}
+          {/* And the Nationality family, on that same slot and fade again — all
+            * four families are mounted together and only opacity distinguishes
+            * them, so moving between two rows crossfades rather than dropping
+            * back through the standing panel. */}
+          {NATIONALITY_PANEL_IDS.map((id) => (
+            <div
+              key={id}
+              className="absolute inset-0"
+              style={{ opacity: previewedNationality === id ? 1 : 0, transition: PANEL_FADE }}
+            >
+              <NationalityPanel nationality={id} />
             </div>
           ))}
         </div>

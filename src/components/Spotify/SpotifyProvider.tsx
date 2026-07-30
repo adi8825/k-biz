@@ -10,7 +10,6 @@ import {
   type ReactNode,
 } from "react";
 import { ABOUT_SAFE_SHIFT } from "@/components/MainScreen/About/aboutContent";
-import { END_CONFIRM_MS, loopAction, type PlaybackData } from "./playbackEnd";
 
 /** Permanent playlist. No `si` parameter: that one is a share token and
  * expires. Adding, removing or reordering tracks inside this playlist needs
@@ -41,7 +40,7 @@ export const ABOUT_PLAYER_SLOT = { x: 1601 + ABOUT_SAFE_SHIFT, y: 40, width: 320
 const CONFIRM_TIMEOUT_MS = 6000;
 
 /* Minimal shape of the bits of Spotify's IFrame API this uses. */
-type PlaybackUpdate = { data: PlaybackData };
+type PlaybackUpdate = { data: { isPaused: boolean; isBuffering: boolean; position: number } };
 type EmbedController = {
   play: () => void;
   pause: () => void;
@@ -100,16 +99,6 @@ export default function SpotifyProvider({ children }: { children: ReactNode }) {
   /* True when the player was opened by the failure fallback rather than by
    * the reader, so a late confirmation can put it away again. */
   const autoRevealedRef = useRef(false);
-  /* True once sound has actually been heard. The loop only ever restarts music
-   * the reader already started, so it can never autoplay on load — which is
-   * both the browser's rule and the right behaviour for the room. */
-  const hasPlayedRef = useRef(false);
-  /* The pending end-of-playlist confirmation, cancelled as soon as the embed
-   * shows the playlist carrying on by itself. */
-  const endTimerRef = useRef<number | null>(null);
-  /* Last position the embed reported, so a repeated update is not mistaken for
-   * the next track arriving. */
-  const lastSignatureRef = useRef("");
 
   const [controllerReady, setControllerReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -143,35 +132,9 @@ export default function SpotifyProvider({ children }: { children: ReactNode }) {
            * playing, so `isPlaying` is derived from its events rather than
            * from the fact that `play()` was called. */
           controller.addListener("playback_update", (event) => {
-            const data = event?.data;
-            const paused = data?.isPaused ?? true;
+            const paused = event?.data?.isPaused ?? true;
             setIsPlaying(!paused);
-
-            /* Looping. The embed reports no ending, so one is inferred: running
-             * to the end of a track arms a restart, and the next track arriving
-             * disarms it. Only the last track's ending is left un-disarmed. */
-            const { signature, action } = loopAction(
-              lastSignatureRef.current,
-              data,
-              hasPlayedRef.current,
-            );
-            lastSignatureRef.current = signature;
-            if (action !== "ignore" && endTimerRef.current !== null) {
-              window.clearTimeout(endTimerRef.current);
-              endTimerRef.current = null;
-            }
-            if (action === "arm") {
-              endTimerRef.current = window.setTimeout(() => {
-                endTimerRef.current = null;
-                /* No next track came, so the playlist has run out. `play()`
-                 * restarts it from the first track — verified against the live
-                 * embed, and the only repeat it offers. */
-                controllerRef.current?.play();
-              }, END_CONFIRM_MS);
-            }
-
             if (!paused) {
-              hasPlayedRef.current = true;
               pendingRef.current = false;
               setPlaybackError(false);
               /* A cold embed can take several seconds to start, so the
@@ -198,16 +161,6 @@ export default function SpotifyProvider({ children }: { children: ReactNode }) {
       document.body.appendChild(script);
     }
   }, []);
-
-  /* The embed itself is deliberately never torn down, but a pending restart
-   * is not part of it — nothing should be able to reach for a controller that
-   * has gone away. */
-  useEffect(
-    () => () => {
-      if (endTimerRef.current !== null) window.clearTimeout(endTimerRef.current);
-    },
-    [],
-  );
 
   return (
     <SpotifyContext.Provider

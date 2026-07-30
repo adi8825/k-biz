@@ -231,7 +231,27 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
    * connected experience instead — same button, client-side navigation. */
   const router = useRouter();
   const goToOpening = useCallback(() => router.push("/opening"), [router]);
-  const handleHistory = onHistory ?? goToOpening;
+  const replay = onHistory ?? goToOpening;
+
+  /**
+   * History returns the Timeline to how it first arrives, then replays.
+   *
+   * Replaying the Opening is the site starting over, so the reader coming out
+   * of it should not land in someone else's filters and sort — in a room, the
+   * previous visitor's narrowing is exactly what the next one should not
+   * inherit. Filters clear and the sort returns to Generations, which is the
+   * mode the Timeline mounts in and the one the Opening hands over to.
+   *
+   * Both go through the helpers the sidebar's own Filters button already uses,
+   * so this is the same reset, not a second one. The selection and the panel
+   * come along with it because a cleared filter set drops them anyway.
+   */
+  const handleHistory = useCallback(() => {
+    setFilterState(resetAllFilters());
+    setOpenFilterCategory(null);
+    setSortMode("generation");
+    replay();
+  }, [replay]);
 
   return (
     <ScaleStage width={CANVAS_WIDTH} height={CANVAS_HEIGHT}>

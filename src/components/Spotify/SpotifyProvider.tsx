@@ -10,7 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import { ABOUT_SAFE_SHIFT } from "@/components/MainScreen/About/aboutContent";
-import { END_CONFIRM_MS, isStoppedAtEnd, type PlaybackData } from "./playbackEnd";
+import { END_CONFIRM_MS, loopAction, type PlaybackData } from "./playbackEnd";
 
 /** Permanent playlist. No `si` parameter: that one is a share token and
  * expires. Adding, removing or reordering tracks inside this playlist needs
@@ -104,9 +104,12 @@ export default function SpotifyProvider({ children }: { children: ReactNode }) {
    * the reader already started, so it can never autoplay on load — which is
    * both the browser's rule and the right behaviour for the room. */
   const hasPlayedRef = useRef(false);
-  /* The pending end-of-playlist confirmation, cancelled the moment the embed
-   * shows any sign of carrying on by itself. */
+  /* The pending end-of-playlist confirmation, cancelled as soon as the embed
+   * shows the playlist carrying on by itself. */
   const endTimerRef = useRef<number | null>(null);
+  /* Last position the embed reported, so a repeated update is not mistaken for
+   * the next track arriving. */
+  const lastSignatureRef = useRef("");
 
   const [controllerReady, setControllerReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -140,24 +143,29 @@ export default function SpotifyProvider({ children }: { children: ReactNode }) {
            * playing, so `isPlaying` is derived from its events rather than
            * from the fact that `play()` was called. */
           controller.addListener("playback_update", (event) => {
-            const paused = event?.data?.isPaused ?? true;
+            const data = event?.data;
+            const paused = data?.isPaused ?? true;
             setIsPlaying(!paused);
 
-            /* Any fresh update means the embed is still doing something, so a
-             * confirmation left over from the previous one is stale. Clearing
-             * it first is what makes the gap between two tracks harmless: the
-             * next track's update arrives inside the window and cancels the
-             * restart that the previous track's ending had armed. */
-            if (endTimerRef.current !== null) {
+            /* Looping. The embed reports no ending, so one is inferred: running
+             * to the end of a track arms a restart, and the next track arriving
+             * disarms it. Only the last track's ending is left un-disarmed. */
+            const { signature, action } = loopAction(
+              lastSignatureRef.current,
+              data,
+              hasPlayedRef.current,
+            );
+            lastSignatureRef.current = signature;
+            if (action !== "ignore" && endTimerRef.current !== null) {
               window.clearTimeout(endTimerRef.current);
               endTimerRef.current = null;
             }
-            if (hasPlayedRef.current && isStoppedAtEnd(event?.data)) {
+            if (action === "arm") {
               endTimerRef.current = window.setTimeout(() => {
                 endTimerRef.current = null;
-                /* Nothing has come in since, so the playlist really has run
-                 * out. `play()` restarts it from the top — the only repeat the
-                 * embed offers, since it has no loop of its own. */
+                /* No next track came, so the playlist has run out. `play()`
+                 * restarts it from the first track — verified against the live
+                 * embed, and the only repeat it offers. */
                 controllerRef.current?.play();
               }, END_CONFIRM_MS);
             }

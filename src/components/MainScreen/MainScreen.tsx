@@ -58,6 +58,28 @@ const PAGE_REGION: Record<number, CharmRegion | null> = Object.fromEntries(
 /** Guided-preview timings, in ms. */
 const PREVIEW = { initialHold: 500, fadeIn: 300, fadeOut: 300, hold: 500 } as const;
 
+/**
+ * How long the floor stays untouched before the Timeline returns to the state
+ * it opens in.
+ *
+ * Three minutes is long enough that nobody reading a group's five pages is
+ * interrupted mid-way, and short enough that the next visitor does not inherit
+ * the last one's filters. Any input at all restarts the count.
+ */
+const IDLE_RESET_MS = 3 * 60 * 1000;
+
+/**
+ * Input that proves someone is still there. `pointermove` is included so that
+ * simply reading with a hand on the mouse counts, and `scroll` so that reading
+ * About counts — it is listened for in the capture phase because scroll does
+ * not bubble.
+ */
+const ACTIVITY_EVENTS = ["pointerdown", "pointermove", "keydown", "wheel", "touchstart"] as const;
+
+/** `pointermove` fires continuously, and re-arming a timer on every pixel is
+ * pointless churn — once a second is far finer than a three-minute window. */
+const ACTIVITY_THROTTLE_MS = 1000;
+
 /** Page-to-page crossfade. Both directions run at the same 300ms so the two
  * layers cross at the midpoint and their opacities sum to about 1 the whole
  * way — an uneven pair left the arriving page still climbing after the
@@ -229,6 +251,61 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
   /* Inside OpeningFlow the flow supplies its replay callback. On the direct
    * route there is no Opening mounted to replay, so History goes to the
    * connected experience instead — same button, client-side navigation. */
+  /**
+   * Everything back to how the Timeline first arrives.
+   *
+   * One definition of "default", used by both the things that need it — the
+   * History button and the idle timer — so the two can never drift apart.
+   *
+   * Every setter here is given the value the screen already mounts with, and
+   * `resetAllFilters()` returns the very same `EMPTY_FILTER_STATE` object the
+   * state started from, so calling this while already default is a genuine
+   * no-op: React compares and bails out rather than re-rendering. That matters
+   * for a machine left running all day.
+   */
+  const resetToDefault = useCallback(() => {
+    setFilterState(resetAllFilters());
+    setOpenFilterCategory(null);
+    setSortMode("generation");
+    setViewMode("default");
+    setAboutOpen(false);
+    setHoveredGeneration(null);
+    setHoveredType(null);
+    setHoveredSize(null);
+    setHoveredNationality(null);
+    clearSelection();
+  }, [clearSelection]);
+
+  /**
+   * The floor has been left alone, so the screen tidies itself up.
+   *
+   * Deliberately not a route change and not a return to the Opening: the
+   * Timeline stays where it is and simply stops showing the last visitor's
+   * narrowing. The timer is armed once and re-armed by input, so once it has
+   * fired it stays quiet until somebody touches the exhibit again.
+   */
+  useEffect(() => {
+    let timer = 0;
+    let lastArmed = 0;
+    const arm = () => {
+      const now = Date.now();
+      if (now - lastArmed < ACTIVITY_THROTTLE_MS) return;
+      lastArmed = now;
+      window.clearTimeout(timer);
+      timer = window.setTimeout(resetToDefault, IDLE_RESET_MS);
+    };
+    for (const type of ACTIVITY_EVENTS) {
+      window.addEventListener(type, arm, { passive: true });
+    }
+    window.addEventListener("scroll", arm, { passive: true, capture: true });
+    arm();
+    return () => {
+      window.clearTimeout(timer);
+      for (const type of ACTIVITY_EVENTS) window.removeEventListener(type, arm);
+      window.removeEventListener("scroll", arm, { capture: true });
+    };
+  }, [resetToDefault]);
+
   const router = useRouter();
   const goToOpening = useCallback(() => router.push("/opening"), [router]);
   const replay = onHistory ?? goToOpening;
@@ -242,16 +319,14 @@ export default function MainScreen({ onHistory }: { onHistory?: () => void } = {
    * inherit. Filters clear and the sort returns to Generations, which is the
    * mode the Timeline mounts in and the one the Opening hands over to.
    *
-   * Both go through the helpers the sidebar's own Filters button already uses,
-   * so this is the same reset, not a second one. The selection and the panel
-   * come along with it because a cleared filter set drops them anyway.
+   * It shares `resetToDefault` with the idle timer rather than clearing a few
+   * things of its own, so "the state the Timeline opens in" means one thing on
+   * this screen and cannot drift between the two ways of getting back to it.
    */
   const handleHistory = useCallback(() => {
-    setFilterState(resetAllFilters());
-    setOpenFilterCategory(null);
-    setSortMode("generation");
+    resetToDefault();
     replay();
-  }, [replay]);
+  }, [resetToDefault, replay]);
 
   return (
     <ScaleStage width={CANVAS_WIDTH} height={CANVAS_HEIGHT}>
